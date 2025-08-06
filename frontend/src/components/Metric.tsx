@@ -1,61 +1,54 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Score from './Score';
+import ProgressBar from './ProgressBar';
 
 interface Paper {
   title: string;
-  core_argument: string;
-  support: string;
-  notes: string;
+  support: string; // This is a value out of 10, e.g., "8.5"
 }
 
 interface MetricProps {
+  icon: React.ReactNode;
+  color: string;
   metric: {
-    id: string;
     name: string;
-    description: string;
+    average: string;
     weight: string;
     papers: Paper[];
-    average: string;
   };
 }
 
-function Metric({ metric }: MetricProps) {
-  const [isOpen, setIsOpen] = useState(false);
+const Metric: React.FC<MetricProps> = ({ icon, color, metric }) => {
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <div className="mb-4 p-4 bg-slate-700 rounded">
-      <div className="flex justify-between items-center cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-        <h3 className="text-xl font-semibold text-sky-200">{metric.name}</h3>
-        <Score score={metric.average} />
-      </div>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            style={{ overflow: 'hidden' }}
-          >
-        <div className="mt-4">
-          <p className="text-slate-400 mb-2">{metric.description}</p>
-          <p className="text-slate-400 mb-4">Weight: {metric.weight}</p>
+    <div className="bg-slate-800 rounded-lg p-6">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center">
+          <div className={`w-10 h-10 rounded-full flex items-center justify-center mr-4 ${color}`}>
+            {icon}
+          </div>
           <div>
-            {metric.papers.map((paper, index) => (
-              <div key={index} className="mb-4 p-3 bg-slate-600 rounded">
-                <h4 className="font-bold">{paper.title}</h4>
-                <p className="text-sm text-slate-300 mt-1">{paper.core_argument}</p>
-                <p className="text-sm text-slate-400 mt-2">Notes: {paper.notes}</p>
-                <div className="text-right font-bold text-sky-400">Support: {paper.support}</div>
-              </div>
-            ))}
+            <h3 className="text-xl font-bold text-white">{metric.name}</h3>
+            <p className="text-slate-400">Weight: {metric.weight}</p>
           </div>
         </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        <div className="text-2xl font-bold text-white">{parseFloat(metric.average).toFixed(1)}</div>
+      </div>
+
+      <div className="mt-6 space-y-4">
+        {metric.papers.map((paper, index) => (
+          <div key={index}>
+            <div className="flex justify-between items-center mb-1">
+              <span className="text-slate-300">{paper.title}</span>
+              <span className="font-semibold text-white">{parseFloat(paper.support).toFixed(1)}</span>
+            </div>
+            <ProgressBar value={parseFloat(paper.support)} />
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default Metric;
