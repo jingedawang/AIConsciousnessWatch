@@ -43,6 +43,8 @@ function App() {
       .then(setData);
   }, []);
 
+  const [hoveredLevel, setHoveredLevel] = useState<string | null>(null);
+
   const togglePapers = (id: string) => {
     const container = document.getElementById(id);
     const icon = container?.previousElementSibling?.previousElementSibling?.querySelector('.toggle-icon');
@@ -97,96 +99,120 @@ function App() {
           <div style={{
             position: 'relative',
             width: '400px',
-            height: '400px'
+            height: '400px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}>
-            <div style={{
-              width: '100%',
-              height: '100%',
-              borderRadius: '50%',
-              position: 'relative',
-              boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
-            }}>
-              {/* Philosophy Segment */}
-              <div
-                id="philosophy-segment"
-                style={{
-                  position: 'absolute',
-                  width: '100%',
-                  height: '100%',
-                  borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #3498db, #2980b9)',
-                  transform: 'rotate(0deg)',
-                  clipPath: 'polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 100%)',
-                  transformOrigin: 'center',
-                  transition: 'all 0.3s ease',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'rotate(0deg) scale(1)';
-                }}
-              ></div>
+            <svg width="400" height="400" viewBox="0 0 120 120" style={{ overflow: 'visible' }}>
+              {/* Background circle */}
+              <circle
+                cx="60"
+                cy="60"
+                r="45"
+                fill="none"
+                stroke="#e5e7eb"
+                strokeWidth="12"
+              />
 
-              {/* Neuroscience Segment */}
-              <div
-                id="neuroscience-segment"
-                style={{
-                  position: 'absolute',
-                  width: '100%',
-                  height: '100%',
-                  borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #9b59b6, #8e44ad)',
-                  transform: 'rotate(144deg)',
-                  clipPath: 'polygon(50% 50%, 50% 0%, 75% 0%, 100% 50%, 75% 100%, 50% 100%)',
-                  transformOrigin: 'center',
-                  transition: 'all 0.3s ease',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'rotate(144deg) scale(1.05)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'rotate(144deg) scale(1)';
-                }}
-              ></div>
+              {hoveredLevel ? (
+                // When hovering: show full circle for selected level
+                <>
+                  {/* Full circle background (light color) */}
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="45"
+                    fill="none"
+                    stroke={
+                      hoveredLevel === 'philosophy' ? '#dbeafe' :
+                        hoveredLevel === 'neuroscience' ? '#e7e5ff' :
+                          '#dcfce7'
+                    }
+                    strokeWidth="12"
+                  />
 
-              {/* Psychology Segment */}
-              <div
-                id="psychology-segment"
-                style={{
-                  position: 'absolute',
-                  width: '100%',
-                  height: '100%',
-                  borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #2ecc71, #27ae60)',
-                  transform: 'rotate(216deg)',
-                  clipPath: 'polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 100%)',
-                  transformOrigin: 'center',
-                  transition: 'all 0.3s ease',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'rotate(216deg) scale(1.05)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'rotate(216deg) scale(1)';
-                }}
-              ></div>
+                  {/* Filled portion (dark color) showing achievement level */}
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="45"
+                    fill="none"
+                    stroke={
+                      hoveredLevel === 'philosophy' ? '#3b82f6' :
+                        hoveredLevel === 'neuroscience' ? '#8b5cf6' :
+                          '#22c55e'
+                    }
+                    strokeWidth="12"
+                    strokeDasharray={`${2 * Math.PI * 45 * (
+                      hoveredLevel === 'philosophy' ? 0.2758 :
+                        hoveredLevel === 'neuroscience' ? 0.3775 :
+                          0.6314
+                    )} ${2 * Math.PI * 45 * (1 - (
+                      hoveredLevel === 'philosophy' ? 0.2758 :
+                        hoveredLevel === 'neuroscience' ? 0.3775 :
+                          0.6314
+                    ))}`}
+                    strokeDashoffset={`-${2 * Math.PI * 45 * 0.25}`}
+                    transform="rotate(0 60 60)"
+                    strokeLinecap="round"
+                    style={{
+                      transition: 'stroke-dasharray 0.6s ease-out',
+                      transformOrigin: '60px 60px'
+                    }}
+                  />
+                </>
+              ) : (
+                // Default state: show segments by weight proportion
+                // Starting from top (0°) and going counter-clockwise: Philosophy → Neuroscience → Psychology
+                <>
+                  {/* Philosophy segment - 40% (starts at top, goes counter-clockwise) */}
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="45"
+                    fill="none"
+                    stroke="#3b82f6"
+                    strokeWidth="12"
+                    strokeDasharray={`${2 * Math.PI * 45 * 0.4} ${2 * Math.PI * 45 * 0.6}`}
+                    strokeDashoffset="0"
+                    transform="rotate(-90 60 60)"
+                    strokeLinecap="round"
+                    style={{ transition: 'opacity 0.3s ease' }}
+                  />
 
-              {/* Inner Circle */}
-              <div style={{
-                position: 'absolute',
-                width: '70%',
-                height: '70%',
-                backgroundColor: '#fff',
-                borderRadius: '50%',
-                top: '15%',
-                left: '15%',
-                boxShadow: 'inset 0 0 10px rgba(0,0,0,0.1)'
-              }}></div>
-            </div>
+                  {/* Neuroscience segment - 20% (follows philosophy counter-clockwise) */}
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="45"
+                    fill="none"
+                    stroke="#8b5cf6"
+                    strokeWidth="12"
+                    strokeDasharray={`${2 * Math.PI * 45 * 0.2} ${2 * Math.PI * 45 * 0.8}`}
+                    strokeDashoffset={`-${2 * Math.PI * 45 * 0.4}`}
+                    transform="rotate(-90 60 60)"
+                    strokeLinecap="round"
+                    style={{ transition: 'opacity 0.3s ease' }}
+                  />
+
+                  {/* Psychology segment - 40% (follows neuroscience counter-clockwise) */}
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="45"
+                    fill="none"
+                    stroke="#22c55e"
+                    strokeWidth="12"
+                    strokeDasharray={`${2 * Math.PI * 45 * 0.4} ${2 * Math.PI * 45 * 0.6}`}
+                    strokeDashoffset={`-${2 * Math.PI * 45 * 0.6}`}
+                    transform="rotate(-90 60 60)"
+                    strokeLinecap="round"
+                    style={{ transition: 'opacity 0.3s ease' }}
+                  />
+                </>
+              )}
+            </svg>
 
             {/* Center Info */}
             <div style={{
@@ -205,7 +231,7 @@ function App() {
               <div style={{
                 fontSize: '14px',
                 color: '#7f8c8d'
-              }}>Overall Support</div>
+              }}>Overall Score</div>
             </div>
           </div>
 
@@ -215,20 +241,18 @@ function App() {
             right: 0,
             top: '50%',
             transform: 'translateY(-50%)',
-            width: '200px'
+            width: '240px'
           }}>
-            {data.Levels.map(level => {
-              const getSegmentId = () => {
-                if (level.title.includes('哲学')) return 'philosophy-segment';
-                if (level.title.includes('神经科学')) return 'neuroscience-segment';
-                return 'psychology-segment';
-              };
+            {data.Levels.map((level, index) => {
+              const colors = [
+                { light: '#dbeafe', dark: '#3b82f6', name: '哲学', id: 'philosophy' },
+                { light: '#e7e5ff', dark: '#8b5cf6', name: '神经科学', id: 'neuroscience' },
+                { light: '#dcfce7', dark: '#22c55e', name: '认知科学', id: 'psychology' }
+              ];
 
-              const getRotation = () => {
-                if (level.title.includes('哲学')) return 'rotate(0deg)';
-                if (level.title.includes('神经科学')) return 'rotate(144deg)';
-                return 'rotate(216deg)';
-              };
+              const colorSet = colors[index];
+              const weight = index === 0 ? 40 : index === 1 ? 20 : 40;
+              const score = parseFloat(level.average.replace('%', ''));
 
               return (
                 <div
@@ -238,48 +262,85 @@ function App() {
                     alignItems: 'center',
                     marginBottom: '15px',
                     cursor: 'pointer',
-                    padding: '10px',
+                    padding: '12px',
                     borderRadius: '8px',
                     transition: 'all 0.3s ease',
-                    backgroundColor: 'transparent'
+                    backgroundColor: hoveredLevel === colorSet.id ? 'rgba(0, 0, 0, 0.08)' : 'transparent',
+                    border: hoveredLevel === colorSet.id ? `2px solid ${colorSet.dark}` : '2px solid transparent'
                   }}
-                  onMouseEnter={(e) => {
-                    const segment = document.getElementById(getSegmentId());
-                    if (segment) {
-                      segment.style.transform = `${getRotation()} scale(1.05)`;
-                    }
-                    e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.08)';
-                  }}
-                  onMouseLeave={(e) => {
-                    const segment = document.getElementById(getSegmentId());
-                    if (segment) {
-                      segment.style.transform = `${getRotation()} scale(1)`;
-                    }
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                  }}
+                  onMouseEnter={() => setHoveredLevel(colorSet.id)}
+                  onMouseLeave={() => setHoveredLevel(null)}
                 >
-                  <div style={{
-                    width: '20px',
-                    height: '20px',
-                    borderRadius: '4px',
-                    marginRight: '10px',
-                    background: level.title.includes('哲学') ? 'linear-gradient(135deg, #3498db, #2980b9)' :
-                      level.title.includes('神经科学') ? 'linear-gradient(135deg, #9b59b6, #8e44ad)' :
-                        'linear-gradient(135deg, #2ecc71, #27ae60)'
-                  }}></div>
-                  <div style={{ flex: 1 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', marginRight: '12px' }}>
+                    {/* Color indicator */}
                     <div style={{
-                      fontWeight: '500',
-                      fontSize: '16px'
+                      width: '18px',
+                      height: '18px',
+                      backgroundColor: hoveredLevel === colorSet.id ? colorSet.light : colorSet.dark,
+                      borderRadius: '4px',
+                      border: hoveredLevel === colorSet.id ? `2px solid ${colorSet.dark}` : 'none',
+                      transition: 'all 0.3s ease',
+                      position: 'relative'
+                    }}>
+                      {hoveredLevel === colorSet.id && (
+                        <div style={{
+                          position: 'absolute',
+                          left: 0,
+                          top: 0,
+                          width: `${score}%`,
+                          height: '100%',
+                          backgroundColor: colorSet.dark,
+                          borderRadius: '2px',
+                          transition: 'width 0.3s ease'
+                        }}></div>
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <div style={{
+                      fontWeight: hoveredLevel === colorSet.id ? 'bold' : '600',
+                      color: hoveredLevel === colorSet.id ? colorSet.dark : '#2c3e50',
+                      fontSize: '15px',
+                      transition: 'all 0.3s ease'
                     }}>{level.title}</div>
                     <div style={{
-                      fontSize: '14px',
-                      color: '#7f8c8d'
-                    }}>{level.average}</div>
+                      fontSize: '12px',
+                      color: hoveredLevel === colorSet.id ? colorSet.dark : '#7f8c8d',
+                      transition: 'all 0.3s ease'
+                    }}>
+                      Score: {score.toFixed(1)}% • Weight: {weight}%
+                    </div>
                   </div>
                 </div>
               );
             })}
+
+            {/* Interactive explanation */}
+            <div style={{
+              marginTop: '20px',
+              padding: '12px',
+              backgroundColor: '#f8f9fa',
+              borderRadius: '8px',
+              border: '1px solid #e9ecef'
+            }}>
+              <div style={{
+                fontSize: '12px',
+                color: '#6c757d',
+                lineHeight: '1.4'
+              }}>
+                {hoveredLevel ? (
+                  <div>
+                    <strong>Focused View:</strong><br />
+                    Showing detailed achievement level for this dimension
+                  </div>
+                ) : (
+                  <div>
+                    <strong>Overview Mode:</strong><br />
+                    Weight proportions • Hover to focus on specific domain
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
 
