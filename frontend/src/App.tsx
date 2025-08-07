@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import Metric from './components/Metric';
-import OverallScore from './components/OverallScore';
+import { useEffect, useState } from 'react';
 
 // Interfaces matching the structure of ai-consciousness-watch.json
 interface Paper {
   title: string;
   core_argument: string;
-  support: string; // e.g., "7.5"
+  support: string;
   notes: string;
 }
 
@@ -14,44 +12,27 @@ interface MetricData {
   id: string;
   name: string;
   description: string;
-  weight: string; // e.g., "40%"
+  weight: string;
   papers: Paper[];
-  average: string; // e.g., "7.2"
+  average: string; // Now string percentage like "61.5%"
 }
 
 interface Level {
-  id: string;
-  name: string;
-  core_question: string;
-  metrics: MetricData[];
-  average: string; // e.g., "6.8"
-  weight: string; // e.g., "40%"
-}
-
-interface ConsciousnessData {
+    id: string;
+    title: string;
+    subtitle: string;
+    average: string; // Now string percentage
+    core_question: string;
+    metrics: MetricData[];
+}interface ConsciousnessData {
   name: string;
   description: string;
+  version: string;
+  author: string;
+  license: string;
+  average: string; // Overall average as string percentage
   Levels: Level[];
-  overall_average: string;
 }
-
-const levelDetails: { [key: string]: { icon: JSX.Element; color: string; metricColor: string } } = {
-  'Philosophy': {
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.25278C12 6.25278 10.7313 4 8.46447 4C6.19764 4 4.5 5.69764 4.5 7.96447C4.5 10.2313 6.19764 12 8.46447 12C10.7313 12 12 9.74722 12 9.74722M12 6.25278C12 6.25278 13.2687 4 15.5355 4C17.8024 4 19.5 5.69764 19.5 7.96447C19.5 10.2313 17.8024 12 15.5355 12C13.2687 12 12 9.74722 12 9.74722M12 12V19.5M8.25 19.5H15.75" /></svg>,
-    color: 'text-blue-400',
-    metricColor: 'bg-blue-500'
-  },
-  'Neuroscience': {
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.5 10.5C8.5 9.11929 9.61929 8 11 8H13C14.3807 8 15.5 9.11929 15.5 10.5V13.5C15.5 14.8807 14.3807 16 13 16H11C9.61929 16 8.5 14.8807 8.5 13.5V10.5Z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8V4M12 16V20M8.5 12H4.5M19.5 12H15.5" /></svg>,
-    color: 'text-purple-400',
-    metricColor: 'bg-purple-500'
-  },
-  'Psychology': {
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422A12.012 12.012 0 0012 4.058 12.012 12.012 0 005.84 10.578L12 14z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14v7l9-5" /></svg>,
-    color: 'text-green-400',
-    metricColor: 'bg-green-500'
-  }
-};
 
 function App() {
   const [data, setData] = useState<ConsciousnessData | null>(null);
@@ -62,41 +43,342 @@ function App() {
       .then(setData);
   }, []);
 
+  const togglePapers = (id: string) => {
+    const container = document.getElementById(id);
+    const icon = container?.previousElementSibling?.previousElementSibling?.querySelector('.toggle-icon');
+
+    if (container && icon) {
+      if (container.style.display === 'block') {
+        container.style.display = 'none';
+        icon.classList.remove('rotate-icon');
+      } else {
+        container.style.display = 'block';
+        icon.classList.add('rotate-icon');
+      }
+    }
+  };
+
   if (!data) {
-    return <div className="bg-slate-900 min-h-screen flex items-center justify-center text-white">Loading...</div>;
+    return <div style={{ background: '#f5f7fa' }} className="min-h-screen flex items-center justify-center">Loading...</div>;
   }
 
-  const overallScoreData = data.Levels.map(level => ({
-    name: level.name,
-    score: parseFloat(level.average),
-    weight: parseFloat(level.weight),
-    color: levelDetails[level.name]?.color || 'text-gray-400'
-  }));
-
   return (
-    <div className="bg-slate-900 text-slate-200 min-h-screen font-sans p-8">
-      <header className="text-center mb-12">
-        <h1 className="text-5xl font-bold text-white">{data.name}</h1>
-        <p className="text-slate-400 mt-4 max-w-3xl mx-auto">{data.description}</p>
-      </header>
+    <div style={{
+      fontFamily: 'MiSans, sans-serif',
+      backgroundColor: '#f5f7fa',
+      color: '#333',
+      width: '1200px',
+      margin: '0 auto'
+    }}>
+      <div style={{ width: '100%', padding: '30px' }}>
+        <header style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <h1 style={{
+            fontSize: '36px',
+            color: '#2c3e50',
+            marginBottom: '10px',
+            margin: 0,
+            fontWeight: 'bold'
+          }}>{data.name}</h1>
+          <p style={{
+            fontSize: '16px',
+            color: '#7f8c8d',
+            maxWidth: '600px',
+            margin: '0 auto'
+          }}>{data.description}</p>
+        </header>
 
-      <OverallScore levels={overallScoreData} overallScore={parseFloat(data.overall_average)} />
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: '50px',
+          position: 'relative',
+          height: '400px'
+        }}>
+          <div style={{
+            position: 'relative',
+            width: '400px',
+            height: '400px'
+          }}>
+            <div style={{
+              width: '100%',
+              height: '100%',
+              borderRadius: '50%',
+              position: 'relative',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+            }}>
+              {/* Philosophy Segment */}
+              <div style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, #3498db, #2980b9)',
+                transform: 'rotate(0deg)',
+                clipPath: 'polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 100%)',
+                transformOrigin: 'center',
+                transition: 'all 0.3s ease'
+              }}></div>
 
-      <main className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {data.Levels.map(level => (
-          <Metric
-            key={level.id}
-            icon={levelDetails[level.name]?.icon}
-            color={levelDetails[level.name]?.metricColor}
-            metric={{
-              name: level.name,
-              average: level.average,
-              weight: level.weight,
-              papers: level.metrics.map(m => ({ title: m.name, support: m.average }))
-            }}
-          />
-        ))}
-      </main>
+              {/* Neuroscience Segment */}
+              <div style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, #9b59b6, #8e44ad)',
+                transform: 'rotate(144deg)',
+                clipPath: 'polygon(50% 50%, 50% 0%, 75% 0%, 100% 50%, 75% 100%, 50% 100%)',
+                transformOrigin: 'center',
+                transition: 'all 0.3s ease'
+              }}></div>
+
+              {/* Psychology Segment */}
+              <div style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, #2ecc71, #27ae60)',
+                transform: 'rotate(216deg)',
+                clipPath: 'polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 100%)',
+                transformOrigin: 'center',
+                transition: 'all 0.3s ease'
+              }}></div>
+
+              {/* Inner Circle */}
+              <div style={{
+                position: 'absolute',
+                width: '70%',
+                height: '70%',
+                backgroundColor: '#fff',
+                borderRadius: '50%',
+                top: '15%',
+                left: '15%',
+                boxShadow: 'inset 0 0 10px rgba(0,0,0,0.1)'
+              }}></div>
+            </div>
+
+            {/* Center Info */}
+            <div style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              textAlign: 'center',
+              zIndex: 10
+            }}>
+              <div style={{
+                fontSize: '48px',
+                fontWeight: 'bold',
+                color: '#2c3e50'
+              }}>{data.average}</div>
+              <div style={{
+                fontSize: '14px',
+                color: '#7f8c8d'
+              }}>Overall Support</div>
+            </div>
+          </div>
+
+          {/* Legend */}
+          <div style={{
+            position: 'absolute',
+            right: 0,
+            top: '50%',
+            transform: 'translateY(-50%)',
+            width: '200px'
+          }}>
+            {data.Levels.map(level => (
+              <div key={level.id} style={{
+                display: 'flex',
+                alignItems: 'center',
+                marginBottom: '15px',
+                cursor: 'pointer',
+                padding: '10px',
+                borderRadius: '8px',
+                transition: 'all 0.3s ease'
+              }}>
+                <div style={{
+                  width: '20px',
+                  height: '20px',
+                  borderRadius: '4px',
+                  marginRight: '10px',
+                  background: level.title.includes('哲学') ? 'linear-gradient(135deg, #3498db, #2980b9)' :
+                    level.title.includes('神经科学') ? 'linear-gradient(135deg, #9b59b6, #8e44ad)' :
+                      'linear-gradient(135deg, #2ecc71, #27ae60)'
+                }}></div>
+                <div style={{ flex: 1 }}>
+                  <div style={{
+                    fontWeight: '500',
+                    fontSize: '16px'
+                  }}>{level.title}</div>
+                  <div style={{
+                    fontSize: '14px',
+                    color: '#7f8c8d'
+                  }}>{level.average}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          marginTop: '30px'
+        }}>
+          {data.Levels.map(level => (
+            <div key={level.id} style={{
+              width: '32%',
+              backgroundColor: '#fff',
+              borderRadius: '12px',
+              padding: '20px',
+              boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
+              transition: 'all 0.3s ease'
+            }}>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                marginBottom: '20px'
+              }}>
+                <div style={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginRight: '15px',
+                  color: '#fff',
+                  background: level.title.includes('哲学') ? 'linear-gradient(135deg, #3498db, #2980b9)' :
+                    level.title.includes('神经科学') ? 'linear-gradient(135deg, #9b59b6, #8e44ad)' :
+                      'linear-gradient(135deg, #2ecc71, #27ae60)'
+                }}>
+                  <i className={
+                    level.title.includes('哲学') ? 'ri-book-open-line' :
+                      level.title.includes('神经科学') ? 'ri-brain-line' :
+                        'ri-psychology-line'
+                  }></i>
+                </div>
+                <div>
+                  <div style={{
+                    fontSize: '18px',
+                    fontWeight: '500'
+                  }}>{level.title}</div>
+                  <div style={{
+                    fontSize: '14px',
+                    color: '#7f8c8d',
+                    marginTop: '2px'
+                  }}>{level.subtitle}</div>
+                </div>
+                <div style={{ marginLeft: 'auto' }}>
+                  <div style={{
+                    fontSize: '24px',
+                    fontWeight: 'bold'
+                  }}>{level.average}</div>
+                </div>
+              </div>
+
+              <div style={{ marginTop: '15px' }}>
+                {level.metrics.map(metric => (
+                  <div key={metric.id} style={{ marginBottom: '20px' }}>
+                    <div
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        marginBottom: '8px',
+                        cursor: 'pointer'
+                      }}
+                      onClick={() => togglePapers(metric.id)}
+                    >
+                      <div style={{
+                        fontSize: '14px',
+                        fontWeight: '500'
+                      }}>{metric.name}</div>
+                      <div style={{
+                        fontSize: '14px',
+                        fontWeight: '500'
+                      }}>{metric.average} <i className="ri-arrow-down-s-line toggle-icon"></i></div>
+                    </div>
+                    <div style={{
+                      height: '8px',
+                      backgroundColor: '#ecf0f1',
+                      borderRadius: '4px',
+                      overflow: 'hidden',
+                      position: 'relative'
+                    }}>
+                      <div style={{
+                        height: '100%',
+                        borderRadius: '4px',
+                        transition: 'width 0.5s ease',
+                        width: metric.average,
+                        background: level.title.includes('哲学') ? 'linear-gradient(to right, #ff9a9e, #3498db)' :
+                          level.title.includes('神经科学') ? 'linear-gradient(to right, #ff9a9e, #9b59b6)' :
+                            'linear-gradient(to right, #ff9a9e, #2ecc71)'
+                      }}></div>
+                    </div>
+
+                    {/* Papers Container - Initially hidden */}
+                    <div id={metric.id} style={{
+                      backgroundColor: '#f9f9f9',
+                      borderRadius: '8px',
+                      padding: '15px',
+                      marginTop: '10px',
+                      display: 'none'
+                    }}>
+                      {metric.papers.map((paper, index) => (
+                        <div key={index} style={{
+                          padding: '10px',
+                          borderBottom: index === metric.papers.length - 1 ? 'none' : '1px solid #ecf0f1'
+                        }}>
+                          <div style={{
+                            fontSize: '14px',
+                            fontWeight: '500',
+                            marginBottom: '5px'
+                          }}>{paper.title}</div>
+                          <div style={{
+                            fontSize: '12px',
+                            color: '#7f8c8d',
+                            marginBottom: '5px'
+                          }}>Core Argument: {paper.core_argument}</div>
+                          <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <div style={{
+                              fontSize: '12px',
+                              color: '#7f8c8d',
+                              marginRight: '10px'
+                            }}>Support:</div>
+                            <div style={{ display: 'flex' }}>
+                              {[1, 2, 3, 4, 5].map(star => (
+                                <i
+                                  key={star}
+                                  className={star <= Math.ceil(parseFloat(paper.support) / 20) ? 'ri-star-fill' : 'ri-star-line'}
+                                  style={{
+                                    color: star <= Math.ceil(parseFloat(paper.support) / 20) ? '#f1c40f' : '#ecf0f1',
+                                    fontSize: '12px',
+                                    marginRight: '2px'
+                                  }}
+                                ></i>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        .rotate-icon {
+          transform: rotate(180deg);
+        }
+        .toggle-icon {
+          transition: transform 0.3s ease;
+        }
+      `}</style>
     </div>
   );
 }
