@@ -107,43 +107,73 @@ function App() {
               boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
             }}>
               {/* Philosophy Segment */}
-              <div style={{
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                borderRadius: '50%',
-                background: 'linear-gradient(135deg, #3498db, #2980b9)',
-                transform: 'rotate(0deg)',
-                clipPath: 'polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 100%)',
-                transformOrigin: 'center',
-                transition: 'all 0.3s ease'
-              }}></div>
+              <div
+                id="philosophy-segment"
+                style={{
+                  position: 'absolute',
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '50%',
+                  background: 'linear-gradient(135deg, #3498db, #2980b9)',
+                  transform: 'rotate(0deg)',
+                  clipPath: 'polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 100%)',
+                  transformOrigin: 'center',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'rotate(0deg) scale(1)';
+                }}
+              ></div>
 
               {/* Neuroscience Segment */}
-              <div style={{
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                borderRadius: '50%',
-                background: 'linear-gradient(135deg, #9b59b6, #8e44ad)',
-                transform: 'rotate(144deg)',
-                clipPath: 'polygon(50% 50%, 50% 0%, 75% 0%, 100% 50%, 75% 100%, 50% 100%)',
-                transformOrigin: 'center',
-                transition: 'all 0.3s ease'
-              }}></div>
+              <div
+                id="neuroscience-segment"
+                style={{
+                  position: 'absolute',
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '50%',
+                  background: 'linear-gradient(135deg, #9b59b6, #8e44ad)',
+                  transform: 'rotate(144deg)',
+                  clipPath: 'polygon(50% 50%, 50% 0%, 75% 0%, 100% 50%, 75% 100%, 50% 100%)',
+                  transformOrigin: 'center',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'rotate(144deg) scale(1.05)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'rotate(144deg) scale(1)';
+                }}
+              ></div>
 
               {/* Psychology Segment */}
-              <div style={{
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                borderRadius: '50%',
-                background: 'linear-gradient(135deg, #2ecc71, #27ae60)',
-                transform: 'rotate(216deg)',
-                clipPath: 'polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 100%)',
-                transformOrigin: 'center',
-                transition: 'all 0.3s ease'
-              }}></div>
+              <div
+                id="psychology-segment"
+                style={{
+                  position: 'absolute',
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '50%',
+                  background: 'linear-gradient(135deg, #2ecc71, #27ae60)',
+                  transform: 'rotate(216deg)',
+                  clipPath: 'polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 50% 100%)',
+                  transformOrigin: 'center',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'rotate(216deg) scale(1.05)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'rotate(216deg) scale(1)';
+                }}
+              ></div>
 
               {/* Inner Circle */}
               <div style={{
@@ -187,37 +217,73 @@ function App() {
             transform: 'translateY(-50%)',
             width: '200px'
           }}>
-            {data.Levels.map(level => (
-              <div key={level.id} style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '15px',
-                cursor: 'pointer',
-                padding: '10px',
-                borderRadius: '8px',
-                transition: 'all 0.3s ease'
-              }}>
-                <div style={{
-                  width: '20px',
-                  height: '20px',
-                  borderRadius: '4px',
-                  marginRight: '10px',
-                  background: level.title.includes('哲学') ? 'linear-gradient(135deg, #3498db, #2980b9)' :
-                    level.title.includes('神经科学') ? 'linear-gradient(135deg, #9b59b6, #8e44ad)' :
-                      'linear-gradient(135deg, #2ecc71, #27ae60)'
-                }}></div>
-                <div style={{ flex: 1 }}>
+            {data.Levels.map(level => {
+              const getSegmentId = () => {
+                if (level.title.includes('哲学')) return 'philosophy-segment';
+                if (level.title.includes('神经科学')) return 'neuroscience-segment';
+                return 'psychology-segment';
+              };
+
+              const getRotation = () => {
+                if (level.title.includes('哲学')) return 'rotate(0deg)';
+                if (level.title.includes('神经科学')) return 'rotate(144deg)';
+                return 'rotate(216deg)';
+              };
+
+              return (
+                <div
+                  key={level.id}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    marginBottom: '15px',
+                    cursor: 'pointer',
+                    padding: '10px',
+                    borderRadius: '8px',
+                    transition: 'all 0.3s ease',
+                    backgroundColor: 'transparent'
+                  }}
+                  onMouseEnter={(e) => {
+                    console.log('Legend mouse enter for:', level.title);
+                    console.log('Segment ID:', getSegmentId());
+                    console.log('Rotation:', getRotation());
+                    const segment = document.getElementById(getSegmentId());
+                    console.log('Found segment:', segment);
+                    if (segment) {
+                      segment.style.transform = `${getRotation()} scale(1.05)`;
+                    }
+                    e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.08)';
+                  }}
+                  onMouseLeave={(e) => {
+                    const segment = document.getElementById(getSegmentId());
+                    if (segment) {
+                      segment.style.transform = `${getRotation()} scale(1)`;
+                    }
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }}
+                >
                   <div style={{
-                    fontWeight: '500',
-                    fontSize: '16px'
-                  }}>{level.title}</div>
-                  <div style={{
-                    fontSize: '14px',
-                    color: '#7f8c8d'
-                  }}>{level.average}</div>
+                    width: '20px',
+                    height: '20px',
+                    borderRadius: '4px',
+                    marginRight: '10px',
+                    background: level.title.includes('哲学') ? 'linear-gradient(135deg, #3498db, #2980b9)' :
+                      level.title.includes('神经科学') ? 'linear-gradient(135deg, #9b59b6, #8e44ad)' :
+                        'linear-gradient(135deg, #2ecc71, #27ae60)'
+                  }}></div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{
+                      fontWeight: '500',
+                      fontSize: '16px'
+                    }}>{level.title}</div>
+                    <div style={{
+                      fontSize: '14px',
+                      color: '#7f8c8d'
+                    }}>{level.average}</div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
@@ -227,14 +293,26 @@ function App() {
           marginTop: '30px'
         }}>
           {data.Levels.map(level => (
-            <div key={level.id} style={{
-              width: '32%',
-              backgroundColor: '#fff',
-              borderRadius: '12px',
-              padding: '20px',
-              boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
-              transition: 'all 0.3s ease'
-            }}>
+            <div
+              key={level.id}
+              style={{
+                width: '32%',
+                backgroundColor: '#fff',
+                borderRadius: '12px',
+                padding: '20px',
+                boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
+                transition: 'all 0.3s ease',
+                cursor: 'pointer'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.05)';
+              }}
+            >
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
