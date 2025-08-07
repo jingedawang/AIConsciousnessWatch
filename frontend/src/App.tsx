@@ -244,11 +244,7 @@ function App() {
                     backgroundColor: 'transparent'
                   }}
                   onMouseEnter={(e) => {
-                    console.log('Legend mouse enter for:', level.title);
-                    console.log('Segment ID:', getSegmentId());
-                    console.log('Rotation:', getRotation());
                     const segment = document.getElementById(getSegmentId());
-                    console.log('Found segment:', segment);
                     if (segment) {
                       segment.style.transform = `${getRotation()} scale(1.05)`;
                     }
