@@ -18,12 +18,12 @@ interface MetricData {
 }
 
 interface Level {
-    id: string;
-    title: string;
-    subtitle: string;
-    average: string; // Now string percentage
-    core_question: string;
-    metrics: MetricData[];
+  id: string;
+  title: string;
+  subtitle: string;
+  average: string; // Now string percentage
+  core_question: string;
+  metrics: MetricData[];
 }interface ConsciousnessData {
   name: string;
   description: string;
@@ -255,8 +255,8 @@ function App() {
                 }}>
                   <i className={
                     level.title.includes('哲学') ? 'ri-book-open-line' :
-                      level.title.includes('神经科学') ? 'ri-brain-line' :
-                        'ri-psychology-line'
+                      level.title.includes('神经科学') ? 'ri-cpu-line' :
+                        'ri-group-line'
                   }></i>
                 </div>
                 <div>
