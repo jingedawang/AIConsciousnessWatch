@@ -226,12 +226,38 @@ function App() {
               <div style={{
                 fontSize: '48px',
                 fontWeight: 'bold',
-                color: '#2c3e50'
-              }}>{data.average}</div>
+                color: hoveredLevel ? (
+                  hoveredLevel === 'philosophy' ? '#3b82f6' :
+                    hoveredLevel === 'neuroscience' ? '#8b5cf6' :
+                      hoveredLevel === 'psychology' ? '#22c55e' :
+                        '#2c3e50'
+                ) : '#2c3e50',
+                transition: 'all 0.3s ease'
+              }}>
+                {hoveredLevel ? (
+                  hoveredLevel === 'philosophy' ? data.Levels[0].average :
+                    hoveredLevel === 'neuroscience' ? data.Levels[1].average :
+                      hoveredLevel === 'psychology' ? data.Levels[2].average :
+                        data.average
+                ) : data.average}
+              </div>
               <div style={{
                 fontSize: '14px',
-                color: '#7f8c8d'
-              }}>Overall Score</div>
+                color: hoveredLevel ? (
+                  hoveredLevel === 'philosophy' ? '#3b82f6' :
+                    hoveredLevel === 'neuroscience' ? '#8b5cf6' :
+                      hoveredLevel === 'psychology' ? '#22c55e' :
+                        '#7f8c8d'
+                ) : '#7f8c8d',
+                transition: 'all 0.3s ease'
+              }}>
+                {hoveredLevel ? (
+                  hoveredLevel === 'philosophy' ? data.Levels[0].title :
+                    hoveredLevel === 'neuroscience' ? data.Levels[1].title :
+                      hoveredLevel === 'psychology' ? data.Levels[2].title :
+                        'Overall Score'
+                ) : 'Overall Score'}
+              </div>
             </div>
           </div>
 
