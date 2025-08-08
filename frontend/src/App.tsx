@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 // Interfaces matching the structure of ai-consciousness-watch.json
 interface Paper {
   title: string;
+  url: string;
   core_argument: string;
   support: string;
   notes: string;
@@ -373,162 +374,266 @@ function App() {
         <div style={{
           display: 'flex',
           justifyContent: 'space-between',
-          marginTop: '30px'
+          marginTop: '30px',
+          gap: '24px'
         }}>
-          {data.Levels.map(level => (
-            <div
-              key={level.id}
-              style={{
-                width: '32%',
-                backgroundColor: '#fff',
-                borderRadius: '12px',
-                padding: '20px',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
-                transition: 'all 0.3s ease',
-                cursor: 'pointer'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-5px)';
-                e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.05)';
-              }}
-            >
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '20px'
-              }}>
+          {data.Levels.map(level => {
+            const colors = [
+              { primary: '#3b82f6', light: '#dbeafe', bg: 'linear-gradient(135deg, #3b82f6, #1d4ed8)' },
+              { primary: '#8b5cf6', light: '#e7e5ff', bg: 'linear-gradient(135deg, #8b5cf6, #7c3aed)' },
+              { primary: '#22c55e', light: '#dcfce7', bg: 'linear-gradient(135deg, #22c55e, #16a34a)' }
+            ];
+            const colorIndex = level.title.includes('哲学') ? 0 : level.title.includes('神经科学') ? 1 : 2;
+            const colorSet = colors[colorIndex];
+
+            return (
+              <div
+                key={level.id}
+                style={{
+                  flex: 1,
+                  backgroundColor: '#fff',
+                  borderRadius: '16px',
+                  padding: '24px',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer',
+                  border: '1px solid rgba(0,0,0,0.06)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px)';
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.15)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
+                }}
+              >
+                {/* Header */}
                 <div style={{
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '50%',
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginRight: '15px',
-                  color: '#fff',
-                  background: level.title.includes('哲学') ? 'linear-gradient(135deg, #3498db, #2980b9)' :
-                    level.title.includes('神经科学') ? 'linear-gradient(135deg, #9b59b6, #8e44ad)' :
-                      'linear-gradient(135deg, #2ecc71, #27ae60)'
+                  alignItems: 'flex-start',
+                  marginBottom: '24px'
                 }}>
-                  <i className={
-                    level.title.includes('哲学') ? 'ri-book-open-line' :
-                      level.title.includes('神经科学') ? 'ri-cpu-line' :
-                        'ri-group-line'
-                  }></i>
-                </div>
-                <div>
                   <div style={{
-                    fontSize: '18px',
-                    fontWeight: '500'
-                  }}>{level.title}</div>
-                  <div style={{
-                    fontSize: '14px',
-                    color: '#7f8c8d',
-                    marginTop: '2px'
-                  }}>{level.subtitle}</div>
-                </div>
-                <div style={{ marginLeft: 'auto' }}>
-                  <div style={{
-                    fontSize: '24px',
-                    fontWeight: 'bold'
-                  }}>{level.average}</div>
-                </div>
-              </div>
-
-              <div style={{ marginTop: '15px' }}>
-                {level.metrics.map(metric => (
-                  <div key={metric.id} style={{ marginBottom: '20px' }}>
-                    <div
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        marginBottom: '8px',
-                        cursor: 'pointer'
-                      }}
-                      onClick={() => togglePapers(metric.id)}
-                    >
-                      <div style={{
-                        fontSize: '14px',
-                        fontWeight: '500'
-                      }}>{metric.name}</div>
-                      <div style={{
-                        fontSize: '14px',
-                        fontWeight: '500'
-                      }}>{metric.average} <i className="ri-arrow-down-s-line toggle-icon"></i></div>
-                    </div>
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '12px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginRight: '16px',
+                    color: '#fff',
+                    background: colorSet.bg,
+                    fontSize: '20px'
+                  }}>
+                    <i className={
+                      level.title.includes('哲学') ? 'ri-book-open-line' :
+                        level.title.includes('神经科学') ? 'ri-cpu-line' :
+                          'ri-group-line'
+                    }></i>
+                  </div>
+                  <div style={{ flex: 1 }}>
                     <div style={{
-                      height: '8px',
-                      backgroundColor: '#ecf0f1',
-                      borderRadius: '4px',
-                      overflow: 'hidden',
-                      position: 'relative'
-                    }}>
-                      <div style={{
-                        height: '100%',
-                        borderRadius: '4px',
-                        transition: 'width 0.5s ease',
-                        width: metric.average,
-                        background: level.title.includes('哲学') ? 'linear-gradient(to right, #ff9a9e, #3498db)' :
-                          level.title.includes('神经科学') ? 'linear-gradient(to right, #ff9a9e, #9b59b6)' :
-                            'linear-gradient(to right, #ff9a9e, #2ecc71)'
-                      }}></div>
-                    </div>
+                      fontSize: '20px',
+                      fontWeight: '600',
+                      color: '#1f2937',
+                      marginBottom: '4px'
+                    }}>{level.title}</div>
+                    <div style={{
+                      fontSize: '14px',
+                      color: '#6b7280',
+                      lineHeight: '1.4'
+                    }}>{level.subtitle}</div>
+                  </div>
+                  <div style={{
+                    background: colorSet.primary,
+                    color: '#fff',
+                    padding: '8px 12px',
+                    borderRadius: '20px',
+                    fontSize: '16px',
+                    fontWeight: '600',
+                    textAlign: 'center',
+                    minWidth: '64px'
+                  }}>
+                    <div>{level.average}</div>
+                    <div style={{
+                      fontSize: '10px',
+                      opacity: 0.9,
+                      marginTop: '2px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.5px'
+                    }}>支持度</div>
+                  </div>
+                </div>
 
-                    {/* Papers Container - Initially hidden */}
-                    <div id={metric.id} style={{
-                      backgroundColor: '#f9f9f9',
-                      borderRadius: '8px',
-                      padding: '15px',
-                      marginTop: '10px',
-                      display: 'none'
-                    }}>
-                      {metric.papers.map((paper, index) => (
-                        <div key={index} style={{
-                          padding: '10px',
-                          borderBottom: index === metric.papers.length - 1 ? 'none' : '1px solid #ecf0f1'
+                {/* Metrics */}
+                <div>
+                  {level.metrics.map(metric => (
+                    <div key={metric.id} style={{ marginBottom: '24px' }}>
+                      <div
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                          marginBottom: '12px',
+                          cursor: 'pointer',
+                          padding: '8px 0'
+                        }}
+                        onClick={() => togglePapers(metric.id)}
+                      >
+                        <div>
+                          <div style={{
+                            fontSize: '15px',
+                            fontWeight: '600',
+                            color: '#374151',
+                            marginBottom: '2px'
+                          }}>{metric.name}</div>
+                          <div style={{
+                            fontSize: '12px',
+                            color: '#9ca3af',
+                            backgroundColor: '#f3f4f6',
+                            padding: '2px 8px',
+                            borderRadius: '12px',
+                            display: 'inline-block'
+                          }}>权重 {metric.weight}</div>
+                        </div>
+                        <div style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '8px'
                         }}>
                           <div style={{
                             fontSize: '14px',
-                            fontWeight: '500',
-                            marginBottom: '5px'
-                          }}>{paper.title}</div>
-                          <div style={{
-                            fontSize: '12px',
-                            color: '#7f8c8d',
-                            marginBottom: '5px'
-                          }}>Core Argument: {paper.core_argument}</div>
-                          <div style={{ display: 'flex', alignItems: 'center' }}>
+                            fontWeight: '600',
+                            color: colorSet.primary
+                          }}>{metric.average}</div>
+                          <i className="ri-arrow-down-s-line toggle-icon" style={{
+                            fontSize: '16px',
+                            color: '#9ca3af'
+                          }}></i>
+                        </div>
+                      </div>
+
+                      {/* Modern Progress Bar */}
+                      <div style={{
+                        height: '6px',
+                        backgroundColor: '#f1f5f9',
+                        borderRadius: '3px',
+                        overflow: 'hidden',
+                        position: 'relative'
+                      }}>
+                        <div style={{
+                          height: '100%',
+                          borderRadius: '3px',
+                          transition: 'width 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+                          width: metric.average,
+                          background: colorSet.primary
+                        }}></div>
+                      </div>
+
+                      {/* Papers Container */}
+                      <div id={metric.id} style={{
+                        backgroundColor: '#f8fafc',
+                        borderRadius: '12px',
+                        padding: '16px',
+                        marginTop: '12px',
+                        display: 'none',
+                        border: '1px solid #e2e8f0'
+                      }}>
+                        {metric.papers.map((paper, index) => (
+                          <div key={index} style={{
+                            padding: '12px',
+                            borderBottom: index === metric.papers.length - 1 ? 'none' : '1px solid #e2e8f0',
+                            borderRadius: '8px',
+                            marginBottom: index === metric.papers.length - 1 ? '0' : '8px',
+                            backgroundColor: '#fff'
+                          }}>
+                            <div style={{
+                              display: 'flex',
+                              alignItems: 'flex-start',
+                              marginBottom: '8px'
+                            }}>
+                              <a
+                                href={paper.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                  color: colorSet.primary,
+                                  textDecoration: 'none',
+                                  fontSize: '14px',
+                                  fontWeight: '500',
+                                  flex: 1,
+                                  lineHeight: '1.4'
+                                }}
+                                onMouseEnter={(e) => {
+                                  e.currentTarget.style.textDecoration = 'underline';
+                                }}
+                                onMouseLeave={(e) => {
+                                  e.currentTarget.style.textDecoration = 'none';
+                                }}
+                              >
+                                {paper.title}
+                              </a>
+                              <i className="ri-external-link-line" style={{
+                                fontSize: '14px',
+                                color: '#9ca3af',
+                                marginLeft: '8px',
+                                cursor: 'pointer'
+                              }}></i>
+                            </div>
                             <div style={{
                               fontSize: '12px',
-                              color: '#7f8c8d',
-                              marginRight: '10px'
-                            }}>Support:</div>
-                            <div style={{ display: 'flex' }}>
-                              {[1, 2, 3, 4, 5].map(star => (
-                                <i
-                                  key={star}
-                                  className={star <= Math.ceil(parseFloat(paper.support) / 20) ? 'ri-star-fill' : 'ri-star-line'}
-                                  style={{
-                                    color: star <= Math.ceil(parseFloat(paper.support) / 20) ? '#f1c40f' : '#ecf0f1',
-                                    fontSize: '12px',
-                                    marginRight: '2px'
-                                  }}
-                                ></i>
-                              ))}
+                              color: '#6b7280',
+                              lineHeight: '1.5',
+                              marginBottom: '8px'
+                            }}>
+                              <strong>核心观点：</strong>{paper.core_argument}
+                            </div>
+                            <div style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'space-between'
+                            }}>
+                              <div style={{ display: 'flex', alignItems: 'center' }}>
+                                <span style={{
+                                  fontSize: '12px',
+                                  color: '#6b7280',
+                                  marginRight: '8px'
+                                }}>支持度：</span>
+                                <div style={{ display: 'flex' }}>
+                                  {[1, 2, 3, 4, 5].map(star => (
+                                    <i
+                                      key={star}
+                                      className={star <= Math.ceil(parseFloat(paper.support) / 20) ? 'ri-star-fill' : 'ri-star-line'}
+                                      style={{
+                                        color: star <= Math.ceil(parseFloat(paper.support) / 20) ? '#fbbf24' : '#d1d5db',
+                                        fontSize: '14px',
+                                        marginRight: '2px'
+                                      }}
+                                    ></i>
+                                  ))}
+                                </div>
+                              </div>
+                              <div style={{
+                                backgroundColor: colorSet.light,
+                                color: colorSet.primary,
+                                padding: '2px 8px',
+                                borderRadius: '12px',
+                                fontSize: '11px',
+                                fontWeight: '600'
+                              }}>
+                                {paper.support}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

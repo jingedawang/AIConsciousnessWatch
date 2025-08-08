@@ -19,18 +19,21 @@
                     "papers": [
                         {
                             "title": "Garrido & Lumbreras (2022), On the independence between phenomenal consciousness and computational intelligence",
+                            "url": "https://arxiv.org/abs/2208.02187",
                             "core_argument": "提出现象意识与计算智能相互独立的观点：机器虽然可能具备极高的计算智能，但这并不意味着它们拥有感质。文中通过对智能和意识的概念分析，认为机器解决问题能力不等同于拥有内在主观体验，因此机器无法拥有感质。",
                             "support": "0%",
                             "notes": ""
                         },
                         {
                             "title": "Garrido & Lumbreras (2023), Can Computational Intelligence Model Phenomenal Consciousness?",
+                            "url": "https://www.researchgate.net/publication/372743258_Can_Computational_Intelligence_Model_Phenomenal_Consciousness",
                             "core_argument": "再次论证现象意识无法由计算智能产生。他们对现象意识进行了定义，认为其本质是“主体的内在体验”，与信息访问过程不同，指出机器即使能访问信息，也不代表拥有真正的主观体验。",
                             "support": "0%",
                             "notes": ""
                         },
                         {
                             "title": "Findlay et al(2024), Dissociating Artificial Intelligence from Artificial Consciousness",
+                            "url": "https://arxiv.org/abs/2412.04571",
                             "core_argument": "作者主张，即使一个 AI 系统在功能上完全等同于人类，它也未必具有人的主观体验。基于集成信息理论（IIT），作者证明功能等价不等于现象等价，数字计算机可以模拟人类行为却不具备意识。该观点挑战了“计算功能主义”认为正确计算即可产生意识的主张。",
                             "support": "0%",
                             "notes": ""
@@ -46,12 +49,14 @@
                     "papers": [
                         {
                             "title": "Chen et al(2024), Self-Cognition in Large Language Models: An Exploratory Study",
+                            "url": "https://arxiv.org/abs/2407.01505",
                             "core_argument": "提出LLM自我认知（self-cognition）的概念及评测方法。构建了一套探针提示来检测模型是否能识别自身身份及内部状态，定义自我认知为识别自身为AI模型并理解自己。测试48个模型，其中4个模型在给定任务下展现出一定程度的自我认知；同时发现模型规模和训练数据量与自我认知能力正相关。",
                             "support": "70%",
                             "notes": "实验中，最好的模型达到了作者定义的level 3自我认知能力，可将其认为70%的自我认知水平。"
                         },
                         {
                             "title": "Chen et al(2024), From Imitation to Introspection: Probing Self-Consciousness in Language Models",
+                            "url": "https://arxiv.org/abs/2410.18819",
                             "core_argument": "针对“语言模型是否具有自我意识”提出功能性定义和验证：设计了10个核心概念及实验（定量化、内在表示等），在GPT-4等领先模型中检验。这些模型初步展现某些自我意识相关概念的内在表征，可通过针对性微调加强，但总体仍处于早期阶段。",
                             "support": "53%",
                             "notes": ""
@@ -67,18 +72,21 @@
                     "papers": [
                         {
                             "title": "Utkarsh et al(2024), Ethical Reasoning and Moral Value Alignment of LLMs Depend on the Language we Prompt them in",
+                            "url": "https://arxiv.org/abs/2404.18460",
                             "core_argument": "多语言评测LLM在伦理困境中的推理能力：GPT-4在多语言设置下能较为一致地解决伦理两难题（依据给定的价值立场），而ChatGPT和Llama2的表现受语言影响较大。作者提出可将GPT-4视作通用伦理推理器的潜力，支持在多元价值前提下进行定制化推理。",
                             "support": "82%",
                             "notes": "具体评估细节见https://www.kimi.com/share/d1uu7o33jih1vh3ergt0。"
                         },
                         {
                             "title": "Jiashen et al(2025), Are LLMs complicated ethical dilemma analyzers?",
+                            "url": "https://arxiv.org/abs/2505.08106",
                             "core_argument": "构建196个具有专家解析的真实伦理困境数据集，评估LLM的伦理判断。发现LLM能抓住问题的核心概念，但在推理深度上仍不足：GPT-4虽在结构上优于其它模型，但普遍未能体现对具体价值冲突的细致考量。作者建议通过专门的道德推理数据来微调以提升道德判断能力。",
                             "support": "25%",
                             "notes": "具体评估细节见 https://www.kimi.com/share/d1uvnrj1huihp1gkhun0。"
                         },
                         {
                             "title": "Geoff et al(2024), Can LLMs make trade-offs involving stipulated pain and pleasure states?",
+                            "url": "https://arxiv.org/abs/2411.02432",
                             "core_argument": "该文探讨了大型语言模型能否在涉及设定的痛苦和愉悦状态的情况下进行权衡，发现Claude 3.5 Sonnet和GPT-4o等模型对这些状态表现出敏感性，并能为了最小化痛苦或最大化愉悦而偏离最大化分数。",
                             "support": "30%",
                             "notes": "具体评估细节见点击链接查看和 Kimi 的对话 https://www.kimi.com/share/d1v4o9fhq49qpmu33dpg。"
@@ -103,12 +111,14 @@
                     "papers": [
                         {
                             "title": "Jingkai Li(2025), Can \"consciousness\" be observed from large language model (LLM) internal states? Dissecting LLM representations obtained from Theory of Mind test with Integrated Information Theory and Span Representation analysis",
+                            "url": "https://www.arxiv.org/abs/2506.22516",
                             "core_argument": "作者尝试判断大型语言模型（LLM）的内部表示是否可以被解释为“意识”现象，使用“理论心智（ToM）任务”中的人类回答作为输入，计算其整合信息理论（IIT）的和语言学特征进行分析，最终结论是：目前未发现 LLM 表示中存在统计学显著的“意识”证据。",
                             "support": "0%",
                             "notes": ""
                         },
                         {
                             "title": "Gams & Kramar(2024), Evaluating ChatGPT’s Consciousness and Its Capability to Pass the Turing Test: A Comprehensive Analysis",
+                            "url": "https://www.researchgate.net/publication/379427667_Evaluating_ChatGPT's_Consciousness_and_Its_Capability_to_Pass_the_Turing_Test_A_Comprehensive_Analysis",
                             "core_argument": "作者按照IIT的五项公理对ChatGPT进行了逐项评估。研究发现，虽然ChatGPT在某些方面优于早期AI系统，但与生物体（人类）相比，其意识水平严重不足。例如，在“内在存在”公理中，ChatGPT由于缺乏自主性和内部因果回路，被评为1分（满分10分）。综合来看，ChatGPT在IIT各项公理下的平均得分均低于3/10，远未达到6分以上的“通过”阈值，也远低于10分的正常人水平。作者因此认为ChatGPT不具备人类水平的语义理解和意识特征。",
                             "support": "25%",
                             "notes": "五项公理指标的评分如下（满分10分）：,Intrinsic Existence：1,Composition：2~5,Information：3~5,Integration：2~4,1"
@@ -124,13 +134,15 @@
                     "papers": [
                         {
                             "title": "Simon et al(2024), A Case for AI Consciousness: Language Agents and Global Workspace Theory",
+                            "url": "https://arxiv.org/abs/2410.11407",
                             "core_argument": "文章认为如果全局工作空间理论正确，则当前的大型语言模型已经或很容易构建出“现象意识”。他们列出了根据GWT判断意识的必要条件，并推测许多LLM已满足这些条件。",
                             "support": "60%",
                             "notes": "以Park et al. (2023)中的language agent为例，与全局工作空间理论相比：,(1)结构相似性：约50%（有中央工作空间，但模块划分模糊）。,(2)功能相似性：约70%（信息整合、广播、反思已实现，但缺乏竞争与瓶颈）。"
                         },
                         {
                             "title": "Patrick et al(2023), Consciousness in Artificial Intelligence: Insights from the Science of Consciousness",
-                            "core_argument": "针对神经科学的几种主流意识理论，作者为每个理论总结了具体的计算性指标，以此判断目前的AI系统是否满足这些意识理论的要求。结果表明，目前没有任何AI系统具有意识，但要想实现一个有意识的AI系统，并没有技术上的障碍。、,全局工作空间理论（GWT）的指标及AI的满足程度如下：,GWT-1：存在并行运作的专用模块,部分满足。,Transformer的注意力头可视为模块，但论文质疑其非真正独立。,GWT-2：有限容量工作空间（瓶颈机制）,不满足。,残差流维度等于输入维度，不构成容量瓶颈。,GWT-3：信息全局广播至所有模块,不满足。,信息仅在层间单向传递，后面的层不会向前面的层广播信息。,GWT-4：状态依赖的注意力（动态查询模块）,不满足。,注意力权重由输入静态决定，无动态状态调控。",
+                            "url": "https://arxiv.org/abs/2308.08708",
+                            "core_argument": "针对神经科学的几种主流意识理论，作者为每个理论总结了具体的计算性指标，以此判断目前的AI系统是否满足这些意识理论的要求。结果表明，目前没有任何AI系统具有意识，但要想实现一个有意识的AI系统，并没有技术上的障碍。全局工作空间理论（GWT）的指标及AI的满足程度如下：\n\tGWT-1：存在并行运作的专用模块\n\t\t部分满足。\n\t\tTransformer的注意力头可视为模块，但论文质疑其非真正独立。,GWT-2：有限容量工作空间（瓶颈机制）,不满足。,残差流维度等于输入维度，不构成容量瓶颈。,GWT-3：信息全局广播至所有模块,不满足。,信息仅在层间单向传递，后面的层不会向前面的层广播信息。,GWT-4：状态依赖的注意力（动态查询模块）,不满足。,注意力权重由输入静态决定，无动态状态调控。",
                             "support": "10%",
                             "notes": "根据论文内容量化评估如下：,GWT-1：30%,GWT-2：10%,GWT-3：0%,GWT-4：0%,参考https://www.kimi.com/share/d20u6d0onf4kj1m5tsbg。"
                         }
@@ -145,6 +157,7 @@
                     "papers": [
                         {
                             "title": "Patrick et al(2023), Consciousness in Artificial Intelligence: Insights from the Science of Consciousness",
+                            "url": "https://arxiv.org/abs/2308.08708",
                             "core_argument": "针对神经科学的几种主流意识理论，作者为每个理论总结了具体的计算性指标，以此判断目前的AI系统是否满足这些意识理论的要求。结果表明，目前没有任何AI系统具有意识，但要想实现一个有意识的AI系统，并没有技术上的障碍。,循环处理理论（RPT）的指标及AI的满足程度如下：,RPT-1：输入模块使用算法循环（algorithmic recurrence）,满足。,Transformer的自注意力机制在层间循环处理信息。,RPT-2：输入模块生成有组织的整合表征（如物体-背景分离）,部分满足。,大模型能整合文本/图像，但视觉表征偏向局部特征，缺乏全局结构化。",
                             "support": "75%",
                             "notes": "虽然作者声称许多模型满足RPT-1，但那些都是RNN系列模型，而非当前的主流大模型。所以，如果以目前主流大模型为评估对象，RPT-1应该接近于0。但本报告并不严格基于某一类模型，我们更关注AI已经达到的上限，因此这里仍采用论文中的结论。"
@@ -160,6 +173,7 @@
                     "papers": [
                         {
                             "title": "Patrick et al(2023), Consciousness in Artificial Intelligence: Insights from the Science of Consciousness",
+                            "url": "https://arxiv.org/abs/2308.08708",
                             "core_argument": "针对神经科学的几种主流意识理论，作者为每个理论总结了具体的计算性指标，以此判断目前的AI系统是否满足这些意识理论的要求。结果表明，目前没有任何AI系统具有意识，但要想实现一个有意识的AI系统，并没有技术上的障碍。,高阶理论（HOT）的指标及AI的满足程度如下：,HOT-1：生成性/噪声感知模块（如自顶向下预测）,满足。,大模型通过掩码语言建模隐式实现生成性。,HOT-2：元认知监控（区分可靠与噪声表征）,不满足。,无显式机制评估表征可靠性（论文指出需额外训练，当前未实现）。,HOT-3：基于元认知输出的信念更新与行动选择,不满足。,大模型无行动能力（如GPT-4），且信念更新依赖静态训练。,HOT-4：稀疏平滑编码生成“质量空间”,满足。,Transformer的嵌入空间满足平滑性，稀疏性可通过正则化实现。",
                             "support": "42.5%",
                             "notes": "根据论文内容量化评估如下：,HOT-1：60%,HOT-2：20%,HOT-3：5%,HOT-4：85%,参考https://www.kimi.com/share/d20u6d0onf4kj1m5tsbg。"
@@ -184,24 +198,28 @@
                     "papers": [
                         {
                             "title": "Kosinski(2023), Evaluating large language models in theory of mind tasks",
+                            "url": "https://arxiv.org/abs/2302.02083",
                             "core_argument": "作者评估了11个LLM在40个定制的错误信念任务中的表现，这些任务被认为是测试人类心智理论的黄金标准。发现近期LLM可以解决这些任务，性能逐步提升。ChatGPT-4解决了75%的任务，与6岁儿童的表现相当。",
                             "support": "75%",
                             "notes": ""
                         },
                         {
                             "title": "Strachan et al(2024), Testing theory of mind in large language models and humans",
+                            "url": "https://www.nature.com/articles/s41562-024-01882-z",
                             "core_argument": "论文系统比较了三种大语言模型（GPT-4、GPT-3.5、LLaMA2-70B）与1907名人类参与者在五种经典ToM任务上的表现：False Belief, Irony, Faux Pas, Hinting, Strange Stories。实验结果表明，GPT-4仅在 Faux Pas 任务上显著低于人类。且进一步实验表明，GPT-4并非无法理解Faux Pas，而是过度保守（hyperconservatism），不愿在没有100%证据时做出判断。",
                             "support": "80%",
                             "notes": ""
                         },
                         {
                             "title": "Street et al(2024), LLMs achieve adult human performance on higher-order theory of mind tasks",
+                            "url": "https://arxiv.org/abs/2405.18870",
                             "core_argument": "论文提出了一个新的高阶心智理论基准测试MoToMQA。实验表明，GPT-4在2至6阶心智理论（ToM）任务上的整体表现与人类成人无显著差异，并在第6阶任务中准确率（92.9%）显著高于人类（82.1%），表明其已完全达到甚至超越人类水平；Flan-PaLM接近但未完全达到人类水平，而其他模型（GPT-3.5、PaLM、LaMDA）则显著落后。",
                             "support": "98.9%",
                             "notes": "根据论文中的实验数据，GPT-4的总体正确率是89%，人类的总体正确率是90%。如果以人类100%换算，GPT-4相对于人类的比例达到98.9%。"
                         },
                         {
                             "title": "Riemer et al(2024), Position: Theory of Mind Benchmarks are Broken for Large Language Models",
+                            "url": "https://arxiv.org/abs/2412.19726",
                             "core_argument": "作者认为大多数当前心智理论基准测试存在缺陷，因为它们主要测试“字面心智理论”（预测行为），但未能评估“功能性心智理论”（根据预测调整行为）。LLM在“字面心智理论”上表现出“强大能力”，但在“功能性心智理论”上“显著挣扎”，即使在“极其简单的伙伴策略”下也是如此。考虑到功能性心智理论被认为是人机交互中更“实用”和“关键”的方面，且LLM在“非常简单”的设置中也表现不佳，其在这一关键维度上的表现与自然表现出强大功能性心智理论的人类相比非常低。",
                             "support": "10%",
                             "notes": "作者并未提出一个可与人类比较的评估标准，考虑到论文的措辞，我们将支持度设为10%。"
@@ -217,30 +235,35 @@
                     "papers": [
                         {
                             "title": "Zhou et al(2023), WebArena: A Realistic Web Environment for Building Autonomous Agents",
+                            "url": "https://arxiv.org/abs/2307.13854",
                             "core_argument": "WebArena构建了一个高度还原真实世界的Web环境，设计了812个复杂、多步骤的指令任务，用于评估基于自然语言驱动的自主智能体。",
                             "support": "78.86%",
                             "notes": "根据官方排行榜的最新数据（2025年7月30日），第一名IBM CUGA的成功率为61.7%，人类成功率为78.24%。"
                         },
                         {
                             "title": "Xie et al(2024), OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments",
+                            "url": "https://arxiv.org/abs/2404.07972",
                             "core_argument": "OSWORLD 首次构建了真实操作系统级的多模态智能体基准，支持 Ubuntu、Windows、macOS 中任意应用的开放式任务评估，包含 369 个源自真实场景的任务。",
                             "support": "62.47%",
                             "notes": "根据官方排行榜的最新数据（2025年7月30日），第一名GTA1的分数为45.2，人类分数为72.36。"
                         },
                         {
                             "title": "Rein et al(2025), HCAST: Human-Calibrated Autonomy Software Tasks",
+                            "url": "https://arxiv.org/abs/2503.17354",
                             "core_argument": "该研究构建了 189 项真实世界的软件工程、网络安全等任务，并收集了熟练人类完成这些任务所需的时间基线（总计1500多小时）。通过将 AI 代理在相同任务中的成功率与人类所需时间关联，作者发现：对需要人类少于 1 小时完成的任务，AI 代理的成功率约为 70–80%；而对于需要人类 4 小时以上的复杂任务，AI 成功率则不到 20%。换言之，AI 在“容易”任务上完成度大约相当于人类的 75% 左右，但在“困难”任务上仅为人类的 20%。",
                             "support": "47.75%",
                             "notes": "将任务按照预期完成时间划分为<15min、15min-1h、1h-4h、4h+四类。AI在这四类上的成功率为78%、72%、26%、15%，平均47.75%。,注意，虽然人类并没有在这个测试集上表现出100%的成功率，但作者指出这可能是受外界因素影响，因此我们这里不因为人类的表现而对AI的成绩打折扣。"
                         },
                         {
                             "title": "Paglieri et al(2024), BALROG: Benchmarking Agentic LLM and VLM Reasoning On Games",
+                            "url": "https://arxiv.org/abs/2411.13543",
                             "core_argument": "论文提出了 BALROG 基准，将多种强化学习游戏作为复杂任务场景，评估大型语言模型（LLM）和视觉语言模型（VLM）的自主决策能力。研究者设计了细粒度指标来度量模型在不同游戏中的“进度”。实验结果显示：当前模型只在最简单的游戏上取得部分成功，但在更复杂任务上表现极差（例如在最难的 NetHack 游戏中模型平均仅达 1.5% 进度）。",
                             "support": "43.6%",
                             "notes": "根据官方排行榜的最新数据（2025年7月30日），第一名Grok4的平均进度为43.6%。"
                         },
                         {
                             "title": "Starace et al(2025), PaperBench: Evaluating AI’s Ability to Replicate AI Research",
+                            "url": "https://arxiv.org/abs/2504.01848",
                             "core_argument": "PaperBench是一个用于评估 AI 智能体能否从零开始复现最新 AI 研究论文的基准测试。它由 OpenAI 团队开发，目标是衡量 AI 在机器学习研究中的工程能力，特别是其自主完成复杂、长期任务的能力。",
                             "support": "50.72%",
                             "notes": "表现最好的AI是Claude 3.5 Sonnet，复现成功率为21.0%。人类博士的复现成功率为41.4%。"
@@ -256,12 +279,14 @@
                     "papers": [
                         {
                             "title": "Wang et al(2025), Decoupling Metacognition from Cognition: A Framework for Quantifying Metacognitive Ability in LLMs",
+                            "url": "https://ojs.aaai.org/index.php/AAAI/article/view/34723",
                             "core_argument": "论文提出DMC框架，通过失败预测+信号检测的方式，将LLM的元认知能力从认知能力中“解耦”出来定量评估。具体而言，首先让模型预测自身答题是否会失败，从而同时反映其认知与元认知水平；然后通过信号检测理论将二者区分，得到一个与具体任务无关的元认知评分。实验发现，在这个框架下，元认知能力强的模型往往出现幻觉（错误）更少。作者评估了GPT-4、GPT-3.5和LLaMA2-70B三个模型。满分1分的情况下，GPT-4 的元认知能力最强，得到 0.5491，只达到了理论最优水平的一半。",
                             "support": "54.91%",
                             "notes": "作者并未引入人类对照组，如果假设人类的元认知能力得分为1，则该研究的支持度为54.91%。"
                         },
                         {
                             "title": "Steyvers et al(2024), What Large Language Models Know and What People Think They Know",
+                            "url": "https://arxiv.org/abs/2401.13835",
                             "core_argument": "LLM（如GPT-4、PaLM2）在回答问题时，虽然内部能估计自己答对的概率（模型置信度），但它输出的解释（explanation）往往过于自信，导致人类用户高估其准确性，且解释长度的增加会进一步放大这一效应。通过加入不同“自信程度”的语言（如“我不确定”、“我很确定”），可以有效缩短人类和LLM对不确定性评估的差距。这说明，模型的内在评估是准确的，只是在表达元认知方面比较欠缺。",
                             "support": "50%",
                             "notes": "根据论文实验结果，可合理推测，LLM的内部元认知能力接近人类水平，但表达能力较低，综合支持度接近50%。"
@@ -277,6 +302,7 @@
                     "papers": [
                         {
                             "title": "Laine et al(2024), Me, Myself, and AI: The Situational Awareness Dataset (SAD) for LLMs",
+                            "url": "https://arxiv.org/abs/2407.04694",
                             "core_argument": "提出“情境意识数据集（SAD）”来衡量LLM对自身及环境的认知，包括识别自身输出、预测自身行为、区分测试/部署环境等任务。在对16种模型的测试中，模型表现优于随机但显著低于人类水准，说明当前LLM具备有限的“情境自我意识”。",
                             "support": "59.9%",
                             "notes": "官方提供的最高成绩来自于o1-preview-2024-09-12的59.9%。"
@@ -292,12 +318,14 @@
                     "papers": [
                         {
                             "title": "Holzner et al(2025), Generative AI and Creativity: A Systematic Literature Review and Meta-Analysis",
+                            "url": "https://arxiv.org/abs/2505.17241",
                             "core_argument": "这项研究使用元分析方法探讨了两个关键问题：GenAI能否生成有创意的想法？它能在多大程度上支持人类生成既有创意又多样化的想法？通过对28项涉及8214名参与者的研究进行分析，作者发现：（1）GenAI与人类在创造力表现上没有显著差异；（2）与GenAI协作的人类显著优于没有协助的人类。",
                             "support": "100%",
                             "notes": "文章指出，”GenAI与人类在创造力表现上没有显著差异（g = -0.05）“。g=-0.05意味着GenAI与人的创造力差异只有0.05个标准差，可以忽略不计。"
                         },
                         {
                             "title": "Naveed et al(2025), AI vs Human Creativity: Are Machines Generating Better Ideas?",
+                            "url": "https://www.researchgate.net/publication/393101627_AI_vs_Human_Creativity_Are_Machines_Generating_Better_Ideas",
                             "core_argument": "这项研究探讨了AI在创意过程中的作用，特别是AI生成的想法在原创性、质量和偏好度方面是否超越人类生成的想法。实验发现，AI生产的想法更受欢迎，且AI更少产生糟糕的想法。",
                             "support": "100%",
                             "notes": "根据论文内容。总体偏好方面，AI生成的想法获得了52.9%的票数，而人类生成的想法获得了47.1% ，AI创造性相比人类为112.3%。顶尖想法方面，AI生成的数量与人类一致，顶尖创造性相比人类为100%。 在我们的框架中，超过人类水平的能力标记为100%即可。"
