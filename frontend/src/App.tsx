@@ -94,7 +94,7 @@ function App() {
       margin: '0 auto'
     }}>
       <LanguageToggle />
-      
+
       <div style={{ width: '100%', padding: '30px' }}>
         <header style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h1 style={{
@@ -258,11 +258,11 @@ function App() {
                 transition: 'all 0.3s ease'
               }}>
                 {hoveredLevel ? (
-                  hoveredLevel === 'philosophy' ? data.Levels[0].average :
-                    hoveredLevel === 'neuroscience' ? data.Levels[1].average :
-                      hoveredLevel === 'psychology' ? data.Levels[2].average :
-                        data.average
-                ) : data.average}
+                  hoveredLevel === 'philosophy' ? parseInt(data.Levels[0].average) + '%' :
+                    hoveredLevel === 'neuroscience' ? parseInt(data.Levels[1].average) + '%' :
+                      hoveredLevel === 'psychology' ? parseInt(data.Levels[2].average) + '%' :
+                        parseInt(data.average) + '%'
+                ) : parseInt(data.average) + '%'}
               </div>
               <div style={{
                 fontSize: '14px',
@@ -357,7 +357,7 @@ function App() {
                       color: hoveredLevel === colorSet.id ? colorSet.dark : '#7f8c8d',
                       transition: 'all 0.3s ease'
                     }}>
-                      {t('score')}: {score.toFixed(1)}% • {t('weight')}: {weight}%
+                      {t('score')}: {Math.round(score)}% • {t('weight')}: {Math.round(weight)}%
                     </div>
                   </div>
                 </div>
@@ -405,8 +405,8 @@ function App() {
               { primary: '#8b5cf6', light: '#e7e5ff', bg: 'linear-gradient(135deg, #8b5cf6, #7c3aed)' },
               { primary: '#22c55e', light: '#dcfce7', bg: 'linear-gradient(135deg, #22c55e, #16a34a)' }
             ];
-            const colorIndex = getText(level.title).includes('哲学') || getText(level.title).includes('Philosophy') ? 0 : 
-                             getText(level.title).includes('神经科学') || getText(level.title).includes('Neuroscience') ? 1 : 2;
+            const colorIndex = getText(level.title).includes('哲学') || getText(level.title).includes('Philosophy') ? 0 :
+              getText(level.title).includes('神经科学') || getText(level.title).includes('Neuroscience') ? 1 : 2;
             const colorSet = colors[colorIndex];
 
             return (
@@ -478,14 +478,7 @@ function App() {
                     textAlign: 'center',
                     minWidth: '64px'
                   }}>
-                    <div>{level.average}</div>
-                    <div style={{
-                      fontSize: '10px',
-                      opacity: 0.9,
-                      marginTop: '2px',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.5px'
-                    }}>{t('support.level')}</div>
+                    <div>{parseInt(level.average)}%</div>
                   </div>
                 </div>
 
@@ -518,7 +511,7 @@ function App() {
                             padding: '2px 8px',
                             borderRadius: '12px',
                             display: 'inline-block'
-                          }}>{t('weight')} {metric.weight}</div>
+                          }}>{t('weight')} {parseInt(metric.weight)}%</div>
                         </div>
                         <div style={{
                           display: 'flex',
@@ -529,7 +522,7 @@ function App() {
                             fontSize: '14px',
                             fontWeight: '600',
                             color: colorSet.primary
-                          }}>{metric.average}</div>
+                          }}>{parseInt(metric.average)}%</div>
                           <i className="ri-arrow-down-s-line toggle-icon" style={{
                             fontSize: '16px',
                             color: '#9ca3af'
@@ -645,7 +638,7 @@ function App() {
                                 fontSize: '11px',
                                 fontWeight: '600'
                               }}>
-                                {paper.support}
+                                {parseInt(paper.support)}%
                               </div>
                             </div>
                           </div>
