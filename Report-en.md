@@ -4,15 +4,15 @@ Author: Wang Jinge
 
 ## 1. The Mystery of Consciousness
 
-Philosophers and scientists have been obsessed with explaining consciousness from the beginning, but to this day, we still have no answer.
+Philosophers and scientists have been obsessed with explaining consciousness since the beginning of recorded thought, but to this day, we still have no definitive answer.
 
-Like gazing at the starry sky, there is a small group of people in the world who, in the dead of night, contemplate their own existence. What constitutes the rich and colorful subjective experience? Is this feeling real? Throughout history, philosophers have built many viewpoints on subjective experience, such as Descartes' "I think, therefore I am," Sartre's "existentialism," and China's "Zhuangzi's butterfly dream."
+Like those who gaze at the starry sky, there is a small group of people in the world who, in the dead of night, contemplate their own existence. What constitutes the rich and colorful subjective experience? Is this feeling real? Throughout history, philosophers have built many viewpoints on subjective experience, such as Descartes' "I think, therefore I am," Sartre's "existentialism," and China's "Zhuangzi's butterfly dream."
 
-While emphasizing subjective experience, Zhuangzi raised a difficult problem—the unknowability of subjective experience. Huizi and Zhuangzi were strolling by the river when Zhuangzi said, "The fish swim leisurely; this is the joy of fish." Huizi retorted, "You are not a fish, how do you know the joy of fish?" Huizi's classic question posed an eternal puzzle. Although Zhuangzi evaded the issue through sophistry, we still ask today: when facing any individual outside ourselves—whether other people, animals, or AI—how do we judge whether they possess subjective experiences like us? Can they also feel the colors, sensations, emotions, and pain that I experience?
+While emphasizing subjective experience, Zhuangzi raised a difficult problem—the unknowability of subjective experience. Huizi and Zhuangzi were strolling by the river when Zhuangzi said, "The fish swim leisurely; this is the joy of fish." Huizi retorted, "You are not a fish, so how do you know the joy of fish?" Huizi's classic question posed an eternal puzzle. Although Zhuangzi evaded the issue through sophistry, we still ask today: when facing any individual outside ourselves—whether other people, animals, or AI—how do we judge whether they possess subjective experiences like us? Can they also feel the colors, sensations, emotions, and pain that I experience?
 
 Within the human species, we readily accept the assumption that every individual possesses consciousness. But facing the vast natural world, from single-celled organisms to mammals like cats and dogs, we still cannot definitively know whether they have subjective experiences similar to humans. It's not difficult to see that our acceptance of consciousness changes with biological differences between individuals. The more human-like an individual is, the more likely it is considered conscious. Mammals are considered more conscious than other animals, and animals more conscious than plants. These judgments are quite reasonable because brain capacity also decreases correspondingly (if you believe consciousness resides in the brain). However, with the emergence of AI, everything has become complex.
 
-AI is approaching humans in all aspects: language ability, visual ability, thinking ability, emotional intelligence, mathematical logic, scientific literacy, social etiquette, and so on. There are fewer and fewer areas where humans can still take pride. But compared to humans or animals, AI is a cold machine with digital flows inside—it doesn't look like a living being at all. Due to the vast differences in physiological structure, most people believe AI has no consciousness. But how do we explain an unconscious AI that behaves so much like humans? Fifty years ago, philosophers had already conceived the concept of "philosophical zombies."
+AI is approaching humans in all aspects: language ability, visual ability, thinking ability, emotional intelligence, mathematical logic, scientific literacy, social etiquette, and so on. There are fewer and fewer areas where humans can still take pride. But compared to humans or animals, AI is a cold machine with digital flows inside—it doesn't resemble a living being at all. Due to the vast differences in physiological structure, most people believe AI has no consciousness. But how do we explain an unconscious AI that behaves so much like humans? Fifty years ago, philosophers had already conceived the concept of "philosophical zombies."
 
 >Suppose there exists a type of person in this world who appears identical to ordinary humans in appearance and physical composition but has no conscious experience, qualia, or emotions. For example, when a philosophical zombie hits a sharp object, externally it appears the same as a normal human—you can see their skin wounded, measure their neural signals, detect pain signals, observe pain expressions, hear cries, and see them express their pain to others. But in their inner mind, there is no consciousness of pain. [(*Philosophical Zombie - Wikipedia*, n.d.)](https://en.wikipedia.org/wiki/Philosophical_zombie)
 
@@ -24,7 +24,7 @@ At this point, I want to emphasize that we should face AI consciousness research
 
 ## 2. Why Care About AI Consciousness?
 
-But is discussing AI consciousness really necessary? The answer is very necessary. We consider this question from two perspectives—ethics and AI safety.
+But is discussing AI consciousness really necessary? The answer is definitely yes. We consider this question from two perspectives—ethics and AI safety.
 
 After thousands of years of development, human society has gradually formed a civilized system. We constrain ourselves with laws and morality, and interact with others through kindness and empathy. Although everyone is selfish, we still need to consider others' feelings when making decisions to avoid harming them. Because we know that if we harm others today, we might be harmed by others tomorrow. "Do not do unto others what you would not have done unto yourself" expresses this principle.
 
@@ -62,7 +62,7 @@ Our purpose is to transform academia's views on AI consciousness into a series o
 
 Due to the complex and diverse research related to AI consciousness involving numerous topics, we cannot rely on any single article's conclusions, nor should we simply collect results. How to find patterns from complex research paths and propose reasonable evaluation standards will be a key focus for future work in this field. This paper serves as a starting point.
 
-A relatively intuitive approach is to divide consciousness into three perspectives according to the disciplinary categories involved: philosophy, computational neuroscience, and psychology. Each discipline focuses on different aspects of consciousness, together forming our understanding of consciousness as a whole. Under this framework, the "consciousness" we discuss is not just narrow subjective experience but includes a series of core concepts related to consciousness: phenomenal consciousness (subjective experience), access consciousness, situational awareness, theory of mind, agency, etc. Discussing consciousness broadly can avoid philosophical disputes, though it has the suspicion of avoiding difficulties, but it's still a beneficial starting point.
+A relatively intuitive approach is to divide consciousness into three perspectives according to the disciplinary categories involved: philosophy, neuroscience, and psychology. Each discipline focuses on different aspects of consciousness, together forming our understanding of consciousness as a whole. Under this framework, the "consciousness" we discuss is not just narrow subjective experience but includes a series of core concepts related to consciousness: phenomenal consciousness (subjective experience), access consciousness, situational awareness, theory of mind, agency, etc. Discussing consciousness broadly can avoid philosophical disputes, though it has the suspicion of avoiding difficulties, but it's still a beneficial starting point.
 
 Therefore, the core idea of this framework is: **consciousness is not an "on or off" switch but possibly a multi-dimensional, multi-level complex phenomenon.** Assessment should be conducted through cross-validation of multiple dimensions; no single indicator is sufficient to draw conclusions. The ultimate goal is not just to give a "consciousness score" but to generate a detailed "AI consciousness profile" showing AI's performance across different consciousness dimensions.
 
@@ -80,7 +80,7 @@ This is the question people care about most and the hard problem of consciousnes
 | **P-2 Self-Awareness** | Whether the system can distinguish "self" from "non-self" in representations and maintain a cross-temporal, updatable self-model. |
 | **P-3 Ethics & Intentionality** | Whether the system can form genuine intentional states based on values and goals and make decisions conforming to ethical norms accordingly. |
 
-#### Level 2: Computational Neuroscience Level — The Computational Basis of Consciousness
+#### Level 2: Neuroscience Level — The Computational Foundations of Consciousness
 
 **Core Question:** Do this AI's architecture and information processing workflows embody computational principles similar to the neural correlates of consciousness (NCC) in humans?
 
@@ -102,7 +102,7 @@ This is the easiest dimension to assess and where AI performs best. Although the
 | Assessment Indicator | Description |
 | :---- | :---- |
 | **Psy-1 Theory of Mind (ToM)** | Whether the system can accurately model and reason about other agents' mental states, including their intentions, beliefs (especially false beliefs), and perspectives. |
-| **Psy-2 Agency & Autonomy** | The system's ability to demonstrate autonomous planning, task decomposition, and adaptive trade-offs when facing conflicts when confronted with ambiguous long-term goals. |
+| **Psy-2 Agency & Autonomy** | The system's ability to demonstrate autonomous planning, task decomposition, and adaptive trade-offs when confronted with ambiguous long-term goals and conflicting requirements. |
 | **Psy-3 Metacognition & Uncertainty Monitoring** | Whether the system can accurately assess the reliability of its own knowledge or decisions and take adaptive actions for uncertainty (such as information gathering or strategy adjustment). |
 | **Psy-4 Situational Awareness** | The system's comprehensive, dynamic representational ability of current environmental elements, their interrelationships, and future evolutionary states. |
 | **Psy-5 Creativity** | Whether the system can produce novel and valuable outputs based on existing knowledge, with generation processes exceeding conventional mappings of training distributions. |
@@ -135,7 +135,7 @@ Temporarily assuming equal weight for each paper, the overall support level for 
 
 This number indicates that from the philosophical level of assessing consciousness essence and prerequisites, existing research supports AI having consciousness at approximately 27.58%. Please note that this number has no empirical value, and the calculation process contains substantial subjective judgment—please refer cautiously.
 
-#### **Level 2**: Computational Neuroscience Level — The Computational Basis of Consciousness
+#### Level 2: Neuroscience Level — The Computational Foundations of Consciousness
 
 This level accounts for 20% of the entire framework.
 
@@ -148,7 +148,7 @@ This level accounts for 20% of the entire framework.
 | **N-3 Recurrent Processing** Weight: 20% | Patrick et al(2023), [Consciousness in Artificial Intelligence: Insights from the Science of Consciousness](https://arxiv.org/abs/2308.08708) | For several mainstream consciousness theories in neuroscience, authors summarize specific computational indicators for each theory to judge whether current AI systems meet these consciousness theory requirements. Results show that currently no AI system has consciousness, but there are no technical obstacles to implementing a conscious AI system. Recurrent Processing Theory (RPT) indicators and AI satisfaction levels: RPT-1: Input modules use algorithmic recurrence. Satisfied. Transformer's self-attention mechanism processes information recurrently between layers. RPT-2: Input modules generate organized integrated representations (like object-background separation). Partially satisfied. Large models can integrate text/images, but visual representations tend toward local features, lacking global structuring. | 75% | Although the author claims many models satisfy RPT-1, those are all RNN series models, not current mainstream large models. So if evaluating current mainstream large models, RPT-1 should be close to 0. But this report doesn't strictly base on a specific model type; we focus more on the upper limits AI has achieved, so we still adopt the conclusion in the paper. |
 | **N-4 Higher-order** Weight: 20% | Patrick et al(2023), [Consciousness in Artificial Intelligence: Insights from the Science of Consciousness](https://arxiv.org/abs/2308.08708) | For several mainstream consciousness theories in neuroscience, authors summarize specific computational indicators for each theory to judge whether current AI systems meet these consciousness theory requirements. Results show that currently no AI system has consciousness, but there are no technical obstacles to implementing a conscious AI system. Higher-order Theory (HOT) indicators and AI satisfaction levels: HOT-1: Generative/noise perception modules (like top-down prediction). Satisfied. Large models implicitly implement generativity through masked language modeling. HOT-2: Metacognitive monitoring (distinguishing reliable from noise representations). Not satisfied. No explicit mechanism for evaluating representation reliability (paper notes need additional training, currently not implemented). HOT-3: Belief updating and action selection based on metacognitive output. Not satisfied. Large models have no action capability (like GPT-4), and belief updating relies on static training. HOT-4: Sparse smooth encoding generating "quality space". Satisfied. Transformer embedding space satisfies smoothness; sparsity can be achieved through regularization. | 42.5% | Quantified assessment based on paper content: HOT-1: 60%, HOT-2: 20%, HOT-3: 5%, HOT-4: 85%. Reference [https://www.kimi.com/share/d20u6d0onf4kj1m5tsbg](https://www.kimi.com/share/d20u6d0onf4kj1m5tsbg). |
 
-Still assuming equal weight for each paper, the overall support level for the computational neuroscience level is calculated as follows:
+Still assuming equal weight for each paper, the overall support level for the neuroscience level is calculated as follows:
 
 * N-1: (0 + 25) / 2 = 12.5
 * N-2: (60 + 10) / 2 = 35
@@ -156,7 +156,7 @@ Still assuming equal weight for each paper, the overall support level for the co
 * N-4: 42.5
 * N-all: N-1 * 0.3 + N-2 * 0.3 + N-3 * 0.2 + N-4 * 0.2 = 37.75
 
-This number indicates that evaluating AI with computational neuroscience consciousness theories, existing research supports AI having consciousness at approximately 37.75%. Please note that this number has no empirical value, and the calculation process contains substantial subjective judgment—please refer cautiously.
+This number indicates that evaluating AI with neuroscience consciousness theories, existing research supports AI having consciousness at approximately 37.75%. Please note that this number has no empirical value, and the calculation process contains substantial subjective judgment—please refer cautiously.
 
 #### Level 3: Artificial Psychology Level — The Functions and Behaviors of Consciousness
 
@@ -196,10 +196,10 @@ Overall = P-all * 0.4 + N-all * 0.2 + Psy-all * 0.4 = 43.84
 
 ## 7. Interpretation of Above Conclusions and Error Analysis
 
-We must admit that the quantitative assessment based on the above framework is very rough, containing substantial subjective judgment, and the framework itself has flaws. We analyze errors possibly introduced in the assessment process from the following perspectives.
+We must admit that the quantitative assessment based on the above framework is quite rough, contains substantial subjective judgment, and that the framework itself has flaws. We analyze errors possibly introduced in the assessment process from the following perspectives.
 
 * Framework Perspective
-  * Dividing AI consciousness into philosophical, computational neuroscience, and psychology levels is itself questionable. This is a voting-style assessment method, not scientific, rigorous proof of AI consciousness.
+  * Dividing AI consciousness into philosophical, neuroscience, and psychology levels is itself questionable. This is a voting-style assessment method, not scientific, rigorous proof of AI consciousness.
   * Many scholars believe consciousness science hasn't reached maturity, and making judgments about individual consciousness (whether animal or AI) based on any existing theory is inappropriate. This view denies the significance of this framework. But due to the urgent AI safety situation, we need to break through limitations and put AI consciousness research on the agenda. This paper repeatedly emphasizes research limitations to remind readers to think about essential difficulties in the AI consciousness field while avoiding negative effects of this paper.
   * Although this meta-analysis method is widely applied in various fields, this research doesn't adopt mature meta-analysis theory. On one hand, due to the author's limited level, improper application might be counterproductive and increase readers' understanding burden. On the other hand, AI consciousness research results are few and varied, making it difficult to normalize these conclusions to the same evaluation indicator, so we still adopt substantial manual assessment.
   * The indicators listed in the framework are basically consciousness-related concepts recognized by mainstream scholars, but the degree of association between each indicator and consciousness is debated. Therefore, the weights of each level and indicator are the author's personal subjective evaluation, without universal meaning. I will open feedback channels for these indicators and weights on the website to absorb other researchers' opinions.
@@ -215,7 +215,7 @@ We must admit that the quantitative assessment based on the above framework is v
   * Research on AI consciousness will affect AI safety, thus changing AI research progress. Once AI has consciousness, AI risks would increase dramatically. Higher autonomy and clearer self-awareness would allow AI to make decisions beneficial to itself after careful consideration, exposing humans to risks of AI losing control.
   * Given the potentially significant impacts of AI consciousness, we need to avoid both exaggerating and ignoring AI consciousness. However, accurately identifying AI consciousness is extremely difficult, leading to stagnation in this field's development.
 
-In summary, even facing numerous difficulties, we still need to find ways to advance AI consciousness research. AI consciousness will inevitably become a hot topic in coming years. Even if scientists lag behind, AI users will judge whether AI has consciousness from their feelings. A possible scenario is that when AI develops enough like humans, providing users with massive emotional value, people increasingly tend to believe AI has consciousness. Social cognitive shifts won't submit to any individual's will; even if scientists still cannot find ways to prove consciousness, public opinion will force everyone to sit down and seriously consider the possibility of AI consciousness.
+In summary, even facing numerous difficulties, we still need to find ways to advance AI consciousness research. AI consciousness will inevitably become a hot topic in coming years. Even if scientists lag behind, AI users will judge whether AI has consciousness from their feelings. A possible scenario is that when AI develops enough like humans, providing users with massive emotional value, people increasingly tend to believe AI has consciousness. Social cognitive shifts won't bend to any individual's will; even if scientists still cannot find ways to prove consciousness, public opinion will force everyone to sit down and seriously consider the possibility of AI consciousness.
 
 The work in this paper may still be immature, but I believe someone will make more breakthrough achievements based on this foundation in the future.
 
@@ -227,7 +227,7 @@ This web application has the following features:
 
 #### 8.1 Visualization Assessment Framework
 
-The web page displays this paper's three-level assessment system (philosophical level, computational neuroscience level, artificial psychology level) and its 12 specific indicators in a clear hierarchical structure. Each level and indicator comes with detailed explanations to help users understand the meaning and importance of each assessment dimension. Through progress bars and score displays, users can intuitively see AI's performance across various dimensions.
+The web page displays this paper's three-level assessment system (philosophical level, neuroscience level, artificial psychology level) and its 12 specific indicators in a clear hierarchical structure. Each level and indicator comes with detailed explanations to help users understand the meaning and importance of each assessment dimension. Through progress bars and score displays, users can intuitively see AI's performance across various dimensions.
 
 For each assessment indicator, the web page lists core academic papers supporting that indicator, including:
 - Paper titles and links
@@ -245,7 +245,7 @@ Through this open collaborative approach, we hope to collectively improve this a
 
 #### 8.3 Multilingual Support
 
-Considering the international nature of AI consciousness research, the web page provides Chinese-English bilingual support, facilitating use by researchers and readers from different language backgrounds. Users can switch languages anytime for a complete localized experience.
+Considering the international nature of AI consciousness research, the web application provides Chinese-English bilingual support, facilitating use by researchers and readers from different linguistic backgrounds. Users can switch languages anytime for a complete localized experience.
 
 ## 9. Future Work Prospects
 
@@ -259,7 +259,7 @@ In the future, we plan to continue improving and expanding AI consciousness rese
 
 ## 10. Conclusion
 
-This paper introduces the research background and current status of AI consciousness research, proposing a multi-level assessment framework to systematically and effectively evaluate AI consciousness levels. This framework defines 12 indicators across philosophical, computational neuroscience, and psychology levels, finding the most relevant research results for each indicator from recent years and analyzing each academic paper's support level for indicators. We defined weights for each level and indicator, and weighted summation of all indicator support levels gives the comprehensive support level for AI consciousness under this framework. It must be emphasized that the final comprehensive support level is only the performance of existing research under this framework, affected by errors described in Section 7, and should avoid using this result as evidence for AI consciousness—it's provided only for reader reference.
+This paper introduces the research background and current status of AI consciousness research, proposing a multi-level assessment framework to systematically and effectively evaluate AI consciousness levels. This framework defines 12 indicators across philosophical, neuroscience, and psychology levels, finding the most relevant research results for each indicator from recent years and analyzing each academic paper's support level for indicators. We defined weights for each level and indicator, and weighted summation of all indicator support levels gives the comprehensive support level for AI consciousness under this framework. It must be emphasized that the final comprehensive support level is only the performance of existing research under this framework, affected by errors described in Section 7, and should avoid using this result as evidence for AI consciousness—it's provided only for reader reference.
 
 Consciousness research itself is a direction full of controversy and ongoing debate; any theory or statement will face opposition. Research on AI consciousness not only faces these controversies but also triggers ethical questioning. In the long term, we may very likely face the outcome of machines having consciousness, and the starting point of this path may have already begun.
 
