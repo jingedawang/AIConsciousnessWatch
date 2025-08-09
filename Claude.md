@@ -2,29 +2,34 @@
 
 ## 项目概述
 
-AI Consciousness Watch 是一个用于监控和评估AI意识发展的仪表板应用，通过哲学、神经科学和心理学三个维度来分析AI意识水平。
+AI Consciousness Watch 是一个用于监控和评估AI意识发展的仪表板应用，通过哲学、神经科学和心理学三个维度来分析AI意识水平。项目支持中英文双语切换，提供国际化的学术研究展示平台。
 
 ## 技术栈
 
 - **前端框架**: React 18 + TypeScript
 - **构建工具**: Vite
 - **样式方案**: Tailwind CSS v4 + 内联样式
+- **国际化**: Context API + 自定义翻译系统
 - **字体**: MiSans（通过CDN引入）
 - **图标**: RemixIcon（通过CDN引入）
-- **数据源**: JSON文件 (`public/ai-consciousness-watch.json`)
+- **数据源**: 多语言JSON文件 (`public/ai-consciousness-watch-i18n.json`)
 
 ## 项目结构
 
 ```
 frontend/
 ├── public/
-│   ├── ai-consciousness-watch.json    # 数据源文件
-│   └── template.html                  # UI设计模板
+│   ├── ai-consciousness-watch.json        # 原始中文数据（备份）
+│   ├── ai-consciousness-watch-i18n.json   # 多语言结构化数据
+│   └── template.html                      # UI设计模板
 ├── src/
-│   ├── App.tsx                        # 主组件
-│   ├── main.tsx                       # 应用入口
-│   ├── style.css                      # 全局样式
-│   └── components/                    # 组件目录（已迁移至App.tsx）
+│   ├── App.tsx                            # 主组件（集成多语言）
+│   ├── main.tsx                           # 应用入口
+│   ├── style.css                          # 全局样式
+│   ├── contexts/
+│   │   └── LanguageContext.tsx            # 语言状态管理
+│   └── components/
+│       └── LanguageToggle.tsx             # 语言切换组件
 ├── package.json
 ├── vite.config.ts
 ├── tailwind.config.js
@@ -33,7 +38,13 @@ frontend/
 
 ## 核心功能
 
-### 1. 智能圆环图表可视化 (最新改进)
+### 0. 多语言支持系统 (🌐 最新功能)
+- **中英文无缝切换**：固定位置的语言切换按钮，支持即时切换
+- **学术内容双语化**：所有论文摘要、技术术语、评估标准完整双语支持
+- **界面元素国际化**：按钮、标签、提示文字等UI元素完全本地化
+- **数据完整性保障**：确保中文原始内容100%准确保持，英文翻译专业准确
+
+### 1. 智能圆环图表可视化
 - **单圆环设计**：展示三个维度的权重比例(哲学40%：神经科学20%：认知科学40%)
 - **动态交互效果**：
   - 默认状态：深色分段显示，按权重比例分布，从正上方开始逆时针排列
@@ -209,6 +220,219 @@ npm run dev
 3. **新增维度**: 需要同时更新数据结构、颜色方案、权重计算和SVG分段逻辑
 4. **性能优化**: 当前SVG动画性能良好，如需优化可考虑使用CSS animation代替JS过渡
 5. **交互扩展**: 可考虑添加点击锁定功能，让用户可以固定在某个维度的详情视图
+
+## 最新更新 (2025年8月9日)
+
+### 多语言支持系统完整实现
+
+#### 1. 系统架构升级
+基于用户需求"现在这个网页是单一语言的，我想要支持中英文双语"，完成了全面的国际化改造：
+
+**技术栈更新**：
+- **Context API**: 全局语言状态管理
+- **多语言组件系统**: 结构化的中英文数据管理
+- **动态文本渲染**: 实时语言切换无需刷新页面
+
+#### 2. 核心组件系统
+
+**语言上下文 (LanguageContext.tsx)**：
+```typescript
+interface LanguageContextType {
+  language: 'zh' | 'en';
+  setLanguage: (lang: 'zh' | 'en') => void;
+  t: (key: string) => string;
+}
+
+// 内置翻译系统
+const translations = {
+  loading: { zh: '加载中...', en: 'Loading...' },
+  'overall.score': { zh: '总体评分', en: 'Overall Score' },
+  // ... 更多翻译
+};
+```
+
+**语言切换组件 (LanguageToggle.tsx)**：
+```typescript
+// 固定位置的语言切换按钮
+<div style={{
+  position: 'fixed',
+  top: '20px',
+  right: '20px',
+  zIndex: 1000,
+  backgroundColor: '#fff',
+  borderRadius: '25px',
+  padding: '8px 16px',
+  boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+  border: '1px solid #e5e7eb'
+}}>
+  <button onClick={toggleLanguage}>
+    🌐 {language === 'zh' ? 'EN' : '中文'}
+  </button>
+</div>
+```
+
+#### 3. 数据结构重构
+
+**多语言数据接口**：
+```typescript
+interface MultiLangText {
+  zh: string;
+  en: string;
+}
+
+interface Level {
+  title: MultiLangText;        // "哲学" / "Philosophy"
+  subtitle: MultiLangText;     // "意识的本质与前提" / "The Nature..."
+  core_question: MultiLangText; // 核心问题的双语版本
+  // ...
+}
+
+interface Paper {
+  core_argument: MultiLangText; // 论文核心观点的双语版本
+  notes: MultiLangText | string; // 备注的双语版本
+}
+```
+
+**数据文件迁移**：
+- **原始文件**: `ai-consciousness-watch.json` (纯中文，保留作备份)
+- **多语言文件**: `ai-consciousness-watch-i18n.json` (结构化双语数据)
+
+#### 4. 精确文本保持系统
+
+**原始内容完整性保障**：
+- ✅ **引号保持**: `"意识主体"` → `"conscious subject"`
+- ✅ **学术术语**: `感受（qualia）` → `'qualia'`  
+- ✅ **论文摘要**: 完整保持原始中文内容的准确性
+- ✅ **技术细节**: 所有百分比、数据、引用格式完全一致
+
+**翻译质量标准**：
+```typescript
+// 示例：核心问题的精确翻译
+"core_question": {
+  "zh": "该AI系统在概念上是否满足了成为\"意识主体\"的基本前提？",
+  "en": "Does this AI system conceptually meet the basic prerequisites to become a 'conscious subject'?"
+}
+```
+
+#### 5. 动态文本渲染系统
+
+**getText 辅助函数**：
+```typescript
+const getText = (text: MultiLangText | string): string => {
+  if (typeof text === 'string') return text;
+  return text[language];
+};
+
+// 使用示例
+{getText(level.title)}        // 自动显示当前语言的标题
+{getText(paper.core_argument)} // 自动显示当前语言的论文摘要
+```
+
+**UI文本翻译系统**：
+```typescript
+// 界面元素的动态翻译
+{t('weight')}: {metric.weight}           // "权重" / "Weight"
+{t('support.level')}: {paper.support}   // "支持度" / "Support Level"
+{t('core.argument')}: {getText(paper.core_argument)} // "核心观点" / "Core Argument"
+```
+
+#### 6. 用户体验优化
+
+**无缝切换体验**：
+- 🔄 **即时响应**: 点击切换按钮后所有文本立即更新
+- 💾 **状态保持**: 使用localStorage记住用户的语言偏好
+- 🎯 **精确定位**: 切换语言不影响页面滚动位置和交互状态
+- 📱 **视觉统一**: 中英文切换后布局保持完全一致
+
+**按钮设计细节**：
+```css
+/* 语言切换按钮 */
+🌐 图标 + 目标语言显示      // 当前中文时显示"EN"，当前英文时显示"中文"
+圆角胶囊形状              // borderRadius: '25px'
+阴影和边框设计            // 现代化的悬浮效果
+悬停动画                  // transform: 'scale(1.05)'
+```
+
+#### 7. 文件结构更新
+
+```
+frontend/
+├── public/
+│   ├── ai-consciousness-watch.json         # 原始中文数据（备份）
+│   └── ai-consciousness-watch-i18n.json    # 多语言结构化数据 ✨新增
+├── src/
+│   ├── App.tsx                             # 主应用（已集成多语言）
+│   ├── contexts/
+│   │   └── LanguageContext.tsx             # 语言上下文 ✨新增
+│   └── components/
+│       └── LanguageToggle.tsx              # 语言切换组件 ✨新增
+```
+
+#### 8. 技术实现亮点
+
+**Context API最佳实践**：
+```typescript
+// 提供者模式
+<LanguageProvider>
+  <LanguageToggle />
+  <App />
+</LanguageProvider>
+
+// 消费者模式
+const { language, t } = useLanguage();
+```
+
+**数据加载策略**：
+```typescript
+// 单一数据源，多语言访问
+useEffect(() => {
+  fetch('/ai-consciousness-watch-i18n.json')
+    .then(response => response.json())
+    .then(setData);
+}, []);
+```
+
+#### 9. 质量保证流程
+
+**数据完整性验证**：
+1. ✅ 对比原始文件，确保中文内容100%一致
+2. ✅ 验证所有多语言字段都有对应翻译
+3. ✅ 检查JSON格式正确性，无语法错误
+4. ✅ 确认引号转义和特殊字符处理正确
+
+**用户体验测试**：
+1. ✅ 语言切换功能正常工作
+2. ✅ 所有界面文本都能正确翻译
+3. ✅ 学术内容翻译准确，术语使用恰当
+4. ✅ 布局在不同语言下保持一致
+
+#### 10. 维护指南
+
+**添加新翻译**：
+```typescript
+// 在 LanguageContext.tsx 中添加
+const translations = {
+  'new.key': { zh: '中文文本', en: 'English Text' }
+};
+
+// 在组件中使用
+{t('new.key')}
+```
+
+**更新数据内容**：
+```typescript
+// 修改 ai-consciousness-watch-i18n.json
+{
+  "name": {
+    "zh": "更新的中文名称",
+    "en": "Updated English Name"
+  }
+}
+```
+
+这次多语言升级实现了完整的国际化支持，用户可以在中英文之间无缝切换，同时保证了学术内容的准确性和完整性。
+
+---
 
 ## 最新更新 (2025年8月8日)
 

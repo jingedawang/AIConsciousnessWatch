@@ -1,45 +1,55 @@
 import { useEffect, useState } from 'react';
+import { useLanguage } from './contexts/LanguageContext';
+import { LanguageToggle } from './components/LanguageToggle';
 
-// Interfaces matching the structure of ai-consciousness-watch.json
+// Interfaces for multilingual data structure
+interface MultiLangText {
+  zh: string;
+  en: string;
+}
+
 interface Paper {
   title: string;
   url: string;
-  core_argument: string;
+  core_argument: MultiLangText;
   support: string;
-  notes: string;
+  notes: MultiLangText | string;
 }
 
 interface MetricData {
   id: string;
-  name: string;
-  description: string;
+  name: MultiLangText;
+  description: MultiLangText;
   weight: string;
   papers: Paper[];
-  average: string; // Now string percentage like "61.5%"
+  average: string;
 }
 
 interface Level {
   id: string;
-  title: string;
-  subtitle: string;
-  average: string; // Now string percentage
-  core_question: string;
+  title: MultiLangText;
+  subtitle: MultiLangText;
+  average: string;
+  core_question: MultiLangText;
   metrics: MetricData[];
-}interface ConsciousnessData {
-  name: string;
-  description: string;
+}
+
+interface ConsciousnessData {
+  name: MultiLangText;
+  description: MultiLangText;
   version: string;
   author: string;
   license: string;
-  average: string; // Overall average as string percentage
+  average: string;
   Levels: Level[];
 }
 
 function App() {
+  const { language, t } = useLanguage();
   const [data, setData] = useState<ConsciousnessData | null>(null);
 
   useEffect(() => {
-    fetch('/ai-consciousness-watch.json')
+    fetch('/ai-consciousness-watch-i18n.json')
       .then(response => response.json())
       .then(setData);
   }, []);
@@ -61,8 +71,18 @@ function App() {
     }
   };
 
+  // Helper function to get text in current language
+  const getText = (text: MultiLangText | string): string => {
+    if (typeof text === 'string') return text;
+    return text[language];
+  };
+
   if (!data) {
-    return <div style={{ background: '#f5f7fa' }} className="min-h-screen flex items-center justify-center">Loading...</div>;
+    return (
+      <div style={{ background: '#f5f7fa' }} className="min-h-screen flex items-center justify-center">
+        {t('loading')}
+      </div>
+    );
   }
 
   return (
@@ -73,6 +93,8 @@ function App() {
       width: '1200px',
       margin: '0 auto'
     }}>
+      <LanguageToggle />
+      
       <div style={{ width: '100%', padding: '30px' }}>
         <header style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h1 style={{
@@ -81,13 +103,13 @@ function App() {
             marginBottom: '10px',
             margin: 0,
             fontWeight: 'bold'
-          }}>{data.name}</h1>
+          }}>{getText(data.name)}</h1>
           <p style={{
             fontSize: '16px',
             color: '#7f8c8d',
             maxWidth: '600px',
             margin: '0 auto'
-          }}>{data.description}</p>
+          }}>{getText(data.description)}</p>
         </header>
 
         <div style={{
@@ -253,11 +275,11 @@ function App() {
                 transition: 'all 0.3s ease'
               }}>
                 {hoveredLevel ? (
-                  hoveredLevel === 'philosophy' ? data.Levels[0].title :
-                    hoveredLevel === 'neuroscience' ? data.Levels[1].title :
-                      hoveredLevel === 'psychology' ? data.Levels[2].title :
-                        'Overall Score'
-                ) : 'Overall Score'}
+                  hoveredLevel === 'philosophy' ? getText(data.Levels[0].title) :
+                    hoveredLevel === 'neuroscience' ? getText(data.Levels[1].title) :
+                      hoveredLevel === 'psychology' ? getText(data.Levels[2].title) :
+                        t('overall.score')
+                ) : t('overall.score')}
               </div>
             </div>
           </div>
@@ -272,9 +294,9 @@ function App() {
           }}>
             {data.Levels.map((level, index) => {
               const colors = [
-                { light: '#dbeafe', dark: '#3b82f6', name: '哲学', id: 'philosophy' },
-                { light: '#e7e5ff', dark: '#8b5cf6', name: '神经科学', id: 'neuroscience' },
-                { light: '#dcfce7', dark: '#22c55e', name: '认知科学', id: 'psychology' }
+                { light: '#dbeafe', dark: '#3b82f6', name: getText(level.title), id: 'philosophy' },
+                { light: '#e7e5ff', dark: '#8b5cf6', name: getText(level.title), id: 'neuroscience' },
+                { light: '#dcfce7', dark: '#22c55e', name: getText(level.title), id: 'psychology' }
               ];
 
               const colorSet = colors[index];
@@ -329,13 +351,13 @@ function App() {
                       color: hoveredLevel === colorSet.id ? colorSet.dark : '#2c3e50',
                       fontSize: '15px',
                       transition: 'all 0.3s ease'
-                    }}>{level.title}</div>
+                    }}>{getText(level.title)}</div>
                     <div style={{
                       fontSize: '12px',
                       color: hoveredLevel === colorSet.id ? colorSet.dark : '#7f8c8d',
                       transition: 'all 0.3s ease'
                     }}>
-                      Score: {score.toFixed(1)}% • Weight: {weight}%
+                      {t('score')}: {score.toFixed(1)}% • {t('weight')}: {weight}%
                     </div>
                   </div>
                 </div>
@@ -357,13 +379,13 @@ function App() {
               }}>
                 {hoveredLevel ? (
                   <div>
-                    <strong>Focused View:</strong><br />
-                    Showing detailed achievement level for this dimension
+                    <strong>{t('focused.view')}:</strong><br />
+                    {t('detailed.achievement')}
                   </div>
                 ) : (
                   <div>
-                    <strong>Overview Mode:</strong><br />
-                    Weight proportions • Hover to focus on specific domain
+                    <strong>{t('overview.mode')}:</strong><br />
+                    {t('weight.proportions')}
                   </div>
                 )}
               </div>
@@ -383,7 +405,8 @@ function App() {
               { primary: '#8b5cf6', light: '#e7e5ff', bg: 'linear-gradient(135deg, #8b5cf6, #7c3aed)' },
               { primary: '#22c55e', light: '#dcfce7', bg: 'linear-gradient(135deg, #22c55e, #16a34a)' }
             ];
-            const colorIndex = level.title.includes('哲学') ? 0 : level.title.includes('神经科学') ? 1 : 2;
+            const colorIndex = getText(level.title).includes('哲学') || getText(level.title).includes('Philosophy') ? 0 : 
+                             getText(level.title).includes('神经科学') || getText(level.title).includes('Neuroscience') ? 1 : 2;
             const colorSet = colors[colorIndex];
 
             return (
@@ -427,8 +450,8 @@ function App() {
                     fontSize: '20px'
                   }}>
                     <i className={
-                      level.title.includes('哲学') ? 'ri-book-open-line' :
-                        level.title.includes('神经科学') ? 'ri-cpu-line' :
+                      getText(level.title).includes('哲学') || getText(level.title).includes('Philosophy') ? 'ri-book-open-line' :
+                        getText(level.title).includes('神经科学') || getText(level.title).includes('Neuroscience') ? 'ri-cpu-line' :
                           'ri-group-line'
                     }></i>
                   </div>
@@ -438,12 +461,12 @@ function App() {
                       fontWeight: '600',
                       color: '#1f2937',
                       marginBottom: '4px'
-                    }}>{level.title}</div>
+                    }}>{getText(level.title)}</div>
                     <div style={{
                       fontSize: '14px',
                       color: '#6b7280',
                       lineHeight: '1.4'
-                    }}>{level.subtitle}</div>
+                    }}>{getText(level.subtitle)}</div>
                   </div>
                   <div style={{
                     background: colorSet.primary,
@@ -462,7 +485,7 @@ function App() {
                       marginTop: '2px',
                       textTransform: 'uppercase',
                       letterSpacing: '0.5px'
-                    }}>支持度</div>
+                    }}>{t('support.level')}</div>
                   </div>
                 </div>
 
@@ -487,7 +510,7 @@ function App() {
                             fontWeight: '600',
                             color: '#374151',
                             marginBottom: '2px'
-                          }}>{metric.name}</div>
+                          }}>{getText(metric.name)}</div>
                           <div style={{
                             fontSize: '12px',
                             color: '#9ca3af',
@@ -495,7 +518,7 @@ function App() {
                             padding: '2px 8px',
                             borderRadius: '12px',
                             display: 'inline-block'
-                          }}>权重 {metric.weight}</div>
+                          }}>{t('weight')} {metric.weight}</div>
                         </div>
                         <div style={{
                           display: 'flex',
@@ -587,7 +610,7 @@ function App() {
                               lineHeight: '1.5',
                               marginBottom: '8px'
                             }}>
-                              <strong>核心观点：</strong>{paper.core_argument}
+                              <strong>{t('core.argument')}：</strong>{getText(paper.core_argument)}
                             </div>
                             <div style={{
                               display: 'flex',
@@ -599,7 +622,7 @@ function App() {
                                   fontSize: '12px',
                                   color: '#6b7280',
                                   marginRight: '8px'
-                                }}>支持度：</span>
+                                }}>{t('support.level')}：</span>
                                 <div style={{ display: 'flex' }}>
                                   {[1, 2, 3, 4, 5].map(star => (
                                     <i
