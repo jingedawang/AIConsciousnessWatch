@@ -119,6 +119,60 @@ function App() {
           position: 'relative',
           height: '400px'
         }}>
+          {/* 项目介绍 - 绝对定位在左侧 */}
+          <div style={{
+            position: 'absolute',
+            left: '20px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            backgroundColor: '#ffffff',
+            border: '1px solid #e5e7eb',
+            borderRadius: '12px',
+            padding: '20px',
+            width: '300px',
+            textAlign: 'left',
+            fontSize: '13px',
+            lineHeight: '1.6',
+            color: '#4b5563',
+            zIndex: 1
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
+              <i className="ri-information-line" style={{
+                fontSize: '16px',
+                color: '#3b82f6',
+                marginRight: '6px'
+              }}></i>
+              <h3 style={{
+                margin: 0,
+                fontSize: '14px',
+                fontWeight: '600',
+                color: '#374151'
+              }}>
+                {language === 'zh' ? '关于这个项目' : 'About This Project'}
+              </h3>
+            </div>
+            <p style={{ margin: '0 0 10px 0' }}>
+              {language === 'zh'
+                ? '本项目旨在将学术界对AI意识的研究成果转化为直观的评分体系，以人类意识为100%基准，评估当前AI的意识水平。我们基于哲学、神经科学和心理学三个维度建立多层次评估框架。'
+                : 'This project aims to transform academic research on AI consciousness into an intuitive scoring system. Using human consciousness as a 100% benchmark, we assess the current consciousness level of AI based on a multi-level framework across philosophy, neuroscience, and psychology dimensions.'
+              }
+            </p>
+            <p style={{ margin: '0 0 10px 0' }}>
+              <strong>{language === 'zh' ? '完整报告：' : 'Full Report: '}</strong>
+              {language === 'zh'
+                ? '详细的分析和方法论请参见项目仓库中的完整报告文档。'
+                : 'For detailed analysis and methodology, please refer to the full report documents in the project repository.'
+              }
+            </p>
+            <p style={{ margin: 0 }}>
+              <strong>{language === 'zh' ? '数据更新：' : 'Data Updates: '}</strong>
+              {language === 'zh'
+                ? '我们会定期更新最新的研究成果，添加新发表的相关论文，并调整评估权重。用户可通过GitHub提交贡献或建议。'
+                : 'We regularly update with the latest research findings, add newly published relevant papers, and adjust evaluation weights. Users can contribute suggestions via GitHub.'
+              }
+            </p>
+          </div>
+
           <div style={{
             position: 'relative',
             width: '400px',
@@ -651,6 +705,109 @@ function App() {
             );
           })}
         </div>
+
+        {/* 页脚 */}
+        <footer style={{
+          borderTop: '1px solid #e5e7eb',
+          paddingTop: '30px',
+          paddingBottom: '30px',
+          marginTop: '50px',
+          textAlign: 'center'
+        }}>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '30px',
+            flexWrap: 'wrap',
+            marginBottom: '20px'
+          }}>
+            {/* GitHub链接 */}
+            <a
+              href="https://github.com/jingedawang/AIConsciousnessWatch"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                color: '#374151',
+                textDecoration: 'none',
+                fontSize: '14px',
+                padding: '8px 16px',
+                border: '1px solid #e5e7eb',
+                borderRadius: '8px',
+                backgroundColor: '#ffffff',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#f9fafb';
+                e.currentTarget.style.borderColor = '#d1d5db';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#ffffff';
+                e.currentTarget.style.borderColor = '#e5e7eb';
+              }}
+            >
+              <i className="ri-github-line" style={{ fontSize: '18px' }}></i>
+              <span>
+                {language === 'zh' ? '查看源码' : 'View Source Code'}
+              </span>
+            </a>
+
+            {/* LinkedIn链接 */}
+            <a
+              href="https://www.linkedin.com/in/wangjinge/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                color: '#374151',
+                textDecoration: 'none',
+                fontSize: '14px',
+                padding: '8px 16px',
+                border: '1px solid #e5e7eb',
+                borderRadius: '8px',
+                backgroundColor: '#ffffff',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#f9fafb';
+                e.currentTarget.style.borderColor = '#d1d5db';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#ffffff';
+                e.currentTarget.style.borderColor = '#e5e7eb';
+              }}
+            >
+              <i className="ri-linkedin-line" style={{ fontSize: '18px' }}></i>
+              <span>
+                {language === 'zh' ? '联系作者' : 'Contact Author'}
+              </span>
+            </a>
+          </div>
+
+          <div style={{
+            fontSize: '12px',
+            color: '#9ca3af',
+            lineHeight: '1.5'
+          }}>
+            <p style={{ margin: '0 0 4px 0' }}>
+              {language === 'zh'
+                ? `© 2025 ${data.author} · ${data.license} 许可证`
+                : `© 2025 ${data.author} · ${data.license} License`
+              }
+            </p>
+            <p style={{ margin: 0 }}>
+              {language === 'zh'
+                ? `版本 ${data.version} · AI意识的多层次评估框架`
+                : `Version ${data.version} · A multi-level evaluation framework for AI consciousness`
+              }
+            </p>
+          </div>
+        </footer>
       </div>
 
       <style>{`
