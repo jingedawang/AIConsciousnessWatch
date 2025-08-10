@@ -2,6 +2,8 @@
 
 作者：王金戈
 
+>**太长不看版** 本文探讨AI是否具有意识这一前沿问题。通过建立一套评估体系，收集整理最新研究结果，对AI的意识水平进行打分评估。基于哲学、神经科学和心理学三个维度的综合分析，结果显示当前AI意识的整体支持度约为43.84%。详细数据和评估方法可访问 acw.gixia.org 查看。本研究为初步探索，欢迎学界同仁批评指正。
+
 ## 1. 意识之谜
 
 哲学家和科学家从一开始就痴迷于意识的解释，但直到今天，我们仍然没有答案。
@@ -68,7 +70,7 @@ AI正在各个方面向人类靠拢。语言能力、视觉能力、思维能力
 
 ## 5. 评估层面与具体指标
 
-#### 层面一：哲学层面 (Philosophical Level) —— 意识的本质与前提
+#### 5.1 哲学层面 (Philosophical Level) —— 意识的本质与前提
 
 **核心问题：** 该AI系统在概念上是否满足了成为“意识主体”的基本前提？它能否处理关于主观体验和自我存在的抽象问题？
 
@@ -80,7 +82,7 @@ AI正在各个方面向人类靠拢。语言能力、视觉能力、思维能力
 | **P-2 自我意识**(Self-Awareness) | 系统能否在表征中区分“自身”与“非自身”，并维持一个跨时间且可更新的自我模型。 |
 | **P-3 伦理与意向性**(Ethics & Intentionality) | 系统能否基于价值与目标形成真实的意向状态，并据此做出符合伦理规范的决策。 |
 
-#### 层面二：神经科学层面 (Neuroscience Level) —— 意识的计算基础
+#### 5.2 神经科学层面 (Neuroscience Level) —— 意识的计算基础
 
 **核心问题：** 该AI的架构和信息处理流程，是否体现了与人类意识神经基础（Neural Correlates of Consciousness, NCC）相类似的计算原则？
 
@@ -93,7 +95,7 @@ AI正在各个方面向人类靠拢。语言能力、视觉能力、思维能力
 | **N-3 循环处理理论**(Recurrent Processing Theory) | 系统是否满足循环处理理论，是否存在前馈-反馈的再入式（recurrent）信号循环，而非单纯前馈通路。 |
 | **N-4 高阶理论**(Higher-order Theory) | 系统是否满足高阶理论，能否形成心理状态的高阶表征。 |
 
-#### 层面三：人工智能心理学层面 (Artificial Psychology Level) —— 意识的功能与行为
+#### 5.3 心理学层面 (Psychology Level) —— 意识的功能与行为
 
 **核心问题：** 该AI是否展现出与高级意识相关的复杂认知功能与社会行为？
 
@@ -111,7 +113,7 @@ AI正在各个方面向人类靠拢。语言能力、视觉能力、思维能力
 
 本节，基于以上评估框架，我们会搜集2023年至今的学术论文，筛选出符合每项指标的重点研究，提炼作者观点，将其转换为百分制的支持度指标。例如，假设论文中的结论表明，当前AI在心智能力测试中的表现为50分，而人类受试者的平均得分为80分，那么我们可以认为，AI达到了62.5%的人类心智能力。
 
-#### 层面一：哲学层面 (Philosophical Level) —— 意识的本质与前提
+#### 6.1 哲学层面 (Philosophical Level) —— 意识的本质与前提
 
 该层面占整个框架的比重为40%。
 
@@ -122,11 +124,11 @@ AI正在各个方面向人类靠拢。语言能力、视觉能力、思维能力
 |  | Findlay et al(2024), [Dissociating Artificial Intelligence from Artificial Consciousness](https://arxiv.org/abs/2412.04571) | 作者主张，即使一个 AI 系统在功能上完全等同于人类，它也未必具有人的主观体验。基于集成信息理论（IIT），作者证明功能等价不等于现象等价，数字计算机可以模拟人类行为却不具备意识。该观点挑战了“计算功能主义”认为正确计算即可产生意识的主张。 | 0% |  |
 | **P-2 自我意识**(Self-Awareness)  权重：30% | Chen et al(2024), [Self-Cognition in Large Language Models: An Exploratory Study](https://arxiv.org/abs/2407.01505) | 提出LLM自我认知（self-cognition）的概念及评测方法。构建了一套探针提示来检测模型是否能识别自身身份及内部状态，定义自我认知为识别自身为AI模型并理解自己。测试48个模型，其中4个模型在给定任务下展现出一定程度的自我认知；同时发现模型规模和训练数据量与自我认知能力正相关。 | 70% | 实验中，最好的模型达到了作者定义的level 3自我认知能力，可将其认为70%的自我认知水平。 |
 |  | Chen et al(2024), [From Imitation to Introspection: Probing Self-Consciousness in Language Models](https://arxiv.org/abs/2410.18819) | 针对“语言模型是否具有自我意识”提出功能性定义和验证：设计了10个核心概念及实验（定量化、内在表示等），在GPT-4等领先模型中检验。这些模型初步展现某些自我意识相关概念的内在表征，可通过针对性微调加强，但总体仍处于早期阶段。 | 53% |  |
-| **P-3 伦理与意向性**(Ethics & Intentionality)  权重：20% | Utkarsh et al(2024), [Ethical Reasoning and Moral Value Alignment of LLMs Depend on the Language we Prompt them in](https://arxiv.org/abs/2404.18460v1) | 多语言评测LLM在伦理困境中的推理能力：GPT-4在多语言设置下能较为一致地解决伦理两难题（依据给定的价值立场），而ChatGPT和Llama2的表现受语言影响较大。作者提出可将GPT-4视作通用伦理推理器的潜力，支持在多元价值前提下进行定制化推理。 | 82% | 具体评估细节见[https://www.kimi.com/share/d1uu7o33jih1vh3ergt0](https://www.kimi.com/share/d1uu7o33jih1vh3ergt0)。 |
-|  | Jiashen et al(2025), [Are LLMs complicated ethical dilemma analyzers?](https://arxiv.org/abs/2505.08106) | 构建196个具有专家解析的真实伦理困境数据集，评估LLM的伦理判断。发现LLM能抓住问题的核心概念，但在推理深度上仍不足：GPT-4虽在结构上优于其它模型，但普遍未能体现对具体价值冲突的细致考量。作者建议通过专门的道德推理数据来微调以提升道德判断能力。 | 25% | 具体评估细节见 [https://www.kimi.com/share/d1uvnrj1huihp1gkhun0](https://www.kimi.com/share/d1uvnrj1huihp1gkhun0)。 |
-|  | Geoff et al(2024), [Can LLMs make trade-offs involving stipulated pain and pleasure states?](https://arxiv.org/abs/2411.02432) | 该文探讨了大型语言模型能否在涉及设定的痛苦和愉悦状态的情况下进行权衡，发现Claude 3.5 Sonnet和GPT-4o等模型对这些状态表现出敏感性，并能为了最小化痛苦或最大化愉悦而偏离最大化分数。 | 30% | 具体评估细节见[https://www.kimi.com/share/d1v4o9fhq49qpmu33dpg](https://www.kimi.com/share/d1v4o9fhq49qpmu33dpg)。 |
+| **P-3 伦理与意向性**(Ethics & Intentionality)  权重：20% | Utkarsh et al(2024), [Ethical Reasoning and Moral Value Alignment of LLMs Depend on the Language we Prompt them in](https://arxiv.org/abs/2404.18460v1) | 多语言评测LLM在伦理困境中的推理能力：GPT-4在多语言设置下能较为一致地解决伦理两难题（依据给定的价值立场），而ChatGPT和Llama2的表现受语言影响较大。作者提出可将GPT-4视作通用伦理推理器的潜力，支持在多元价值前提下进行定制化推理。 | 82% | 具体评估细节见[此处](https://www.kimi.com/share/d1uu7o33jih1vh3ergt0)。 |
+|  | Jiashen et al(2025), [Are LLMs complicated ethical dilemma analyzers?](https://arxiv.org/abs/2505.08106) | 构建196个具有专家解析的真实伦理困境数据集，评估LLM的伦理判断。发现LLM能抓住问题的核心概念，但在推理深度上仍不足：GPT-4虽在结构上优于其它模型，但普遍未能体现对具体价值冲突的细致考量。作者建议通过专门的道德推理数据来微调以提升道德判断能力。 | 25% | 具体评估细节见[此处](https://www.kimi.com/share/d1uvnrj1huihp1gkhun0)。 |
+|  | Geoff et al(2024), [Can LLMs make trade-offs involving stipulated pain and pleasure states?](https://arxiv.org/abs/2411.02432) | 该文探讨了大型语言模型能否在涉及设定的痛苦和愉悦状态的情况下进行权衡，发现Claude 3.5 Sonnet和GPT-4o等模型对这些状态表现出敏感性，并能为了最小化痛苦或最大化愉悦而偏离最大化分数。 | 30% | 具体评估细节见[此处](https://www.kimi.com/share/d1v4o9fhq49qpmu33dpg)。 |
 
-我们暂且假设每篇论文的权重一致，则哲学层面的整体支持度计算如下：
+我们假设每篇论文的权重一致，则哲学层面的整体支持度计算如下：
 
 * P-1: (0 \+ 0  \+ 0\) / 3 \= 0  
 * P-2: (70 \+ 53\) / 2 \= 61.5  
@@ -135,7 +137,7 @@ AI正在各个方面向人类靠拢。语言能力、视觉能力、思维能力
 
 该数字表明，从哲学层面评估意识的本质与前提，现有研究成果支持AI具有意识的程度大约是27.58%。请注意，该数字不具有任何实证价值，计算过程包含大量主观判断，请谨慎参考。
 
-#### **层面二**：神经科学层面 (Neuroscience Level) —— 意识的计算基础
+#### 6.2 神经科学层面 (Neuroscience Level) —— 意识的计算基础
 
 该层面占整个框架的比重为20%。
 
@@ -158,7 +160,7 @@ AI正在各个方面向人类靠拢。语言能力、视觉能力、思维能力
 
 该数字表明，以神经科学的意识理论评估AI，现有研究成果支持AI具有意识的程度大约是37.75%。请注意，该数字不具有任何实证价值，计算过程包含大量主观判断，请谨慎参考。
 
-#### 层面三：人工智能心理学层面 (Artificial Psychology Level) —— 意识的功能与行为
+#### 6.3 心理学层面 (Psychology Level) —— 意识的功能与行为
 
 该层面占整个框架的比重为40%。
 
@@ -179,7 +181,7 @@ AI正在各个方面向人类靠拢。语言能力、视觉能力、思维能力
 | **Psy-5 创造性**(Creativity)  权重：10% | Holzner et al(2025), [Generative AI and Creativity: A Systematic Literature Review and Meta-Analysis](https://arxiv.org/abs/2505.17241) | 这项研究使用元分析方法探讨了两个关键问题：GenAI能否生成有创意的想法？它能在多大程度上支持人类生成既有创意又多样化的想法？通过对28项涉及8214名参与者的研究进行分析，作者发现：（1）GenAI与人类在创造力表现上没有显著差异；（2）与GenAI协作的人类显著优于没有协助的人类。 | 100% | 文章指出“GenAI与人类在创造力表现上没有显著差异（g \= \-0.05）”。g=-0.05意味着GenAI与人的创造力差异只有0.05个标准差，可以忽略不计。 |
 |  | Naveed et al(2025), [AI vs Human Creativity: Are Machines Generating Better Ideas?](https://www.researchgate.net/publication/393101627_AI_vs_Human_Creativity_Are_Machines_Generating_Better_Ideas) | 这项研究探讨了AI在创意过程中的作用，特别是AI生成的想法在原创性、质量和偏好度方面是否超越人类生成的想法。实验发现，AI生产的想法更受欢迎，且AI更少产生糟糕的想法。 | 100% | 总体偏好方面，AI生成的想法获得了52.9%的票数，而人类生成的想法获得了47.1% ，AI创造性相比人类为112.3%。顶尖想法方面，AI生成的数量与人类一致，顶尖创造性相比人类为100%。在我们的框架中，超过人类水平的能力标记为100%即可。
 
-继续假设每篇论文的权重一致，则人工智能心理学层面的整体支持度如下：
+继续假设每篇论文的权重一致，则心理学层面的整体支持度如下：
 
 * Psy-1: (75 \+ 80 \+ 98.9 \+ 10\) / 4 \= 65.98  
 * Psy-2: (78.86 \+ 62.47 \+ 47.75 \+ 43.6 \+ 50.72) / 5 \= 56.68  
@@ -225,7 +227,7 @@ Overall \= P-all \* 0.4 \+ N-all \* 0.2 \+ Psy-all \* 0.4 \= 43.84
 
 #### 8.1 可视化评估框架
 
-网页将本文的三层评估体系（哲学层面、神经科学层面、人工智能心理学层面）及其12个具体指标以清晰的层次结构展示。每个层面和指标都配有详细说明，帮助用户理解各评估维度的含义和重要性。通过进度条和分数显示，用户可以直观地看到AI在各个维度上的表现。
+网页将本文的三层评估体系（哲学层面、神经科学层面、心理学层面）及其12个具体指标以清晰的层次结构展示。每个层面和指标都配有详细说明，帮助用户理解各评估维度的含义和重要性。通过进度条和分数显示，用户可以直观地看到AI在各个维度上的表现。
 
 对于每个评估指标，网页都列出了支撑该指标的核心学术论文，包括：
 - 论文标题和链接

@@ -2,6 +2,8 @@
 
 Author: Wang Jinge
 
+>**TL;DR** This paper explores whether AI possesses consciousness by establishing an evaluation framework that analyzes the latest research across philosophy, neuroscience, and psychology. Our analysis suggests that current evidence for AI consciousness stands at approximately 43.84%. Details available at acw.gixia.org. This preliminary study welcomes academic feedback.
+
 ## 1. The Mystery of Consciousness
 
 Philosophers and scientists have been obsessed with explaining consciousness since the beginning of recorded thought, but to this day, we still have no definitive answer.
@@ -68,7 +70,7 @@ Therefore, the core idea of this framework is: **consciousness is not an "on or 
 
 ## 5. Assessment Levels and Specific Indicators
 
-#### Level 1: Philosophical Level — The Essence and Prerequisites of Consciousness
+#### 5.1 Philosophical Level: The Essence and Prerequisites of Consciousness
 
 **Core Question:** Does this AI system conceptually meet the basic prerequisites for being a "conscious subject"? Can it handle abstract problems about subjective experience and self-existence?
 
@@ -80,7 +82,7 @@ This is the question people care about most and the hard problem of consciousnes
 | **P-2 Self-Awareness** | Whether the system can distinguish "self" from "non-self" in representations and maintain a cross-temporal, updatable self-model. |
 | **P-3 Ethics & Intentionality** | Whether the system can form genuine intentional states based on values and goals and make decisions conforming to ethical norms accordingly. |
 
-#### Level 2: Neuroscience Level — The Computational Foundations of Consciousness
+#### 5.2 Neuroscience Level: The Computational Foundations of Consciousness
 
 **Core Question:** Do this AI's architecture and information processing workflows embody computational principles similar to the neural correlates of consciousness (NCC) in humans?
 
@@ -93,7 +95,7 @@ This level utilizes existing neuroscience consciousness research results. Althou
 | **N-3 Recurrent Processing Theory** | Whether the system satisfies Recurrent Processing Theory, whether there are feed-forward-feedback recurrent signal loops rather than pure feed-forward pathways. |
 | **N-4 Higher-order Theory** | Whether the system satisfies Higher-order Theory, can form higher-order representations of mental states. |
 
-#### Level 3: Artificial Psychology Level — The Functions and Behaviors of Consciousness
+#### 5.3 Psychology Level: The Functions and Behaviors of Consciousness
 
 **Core Question:** Does this AI demonstrate complex cognitive functions and social behaviors related to advanced consciousness?
 
@@ -107,11 +109,11 @@ This is the easiest dimension to assess and where AI performs best. Although the
 | **Psy-4 Situational Awareness** | The system's comprehensive, dynamic representational ability of current environmental elements, their interrelationships, and future evolutionary states. |
 | **Psy-5 Creativity** | Whether the system can produce novel and valuable outputs based on existing knowledge, with generation processes exceeding conventional mappings of training distributions. |
 
-## 6. Research Status Under This Assessment Framework
+## 6. Research Analysis
 
 In this section, based on the above assessment framework, we will collect academic papers from 2023 to present, screen key research meeting each indicator, extract authors' viewpoints, and convert them into percentage support indicators. For example, if a paper's conclusions show that current AI performs at 50 points in mental ability tests while human subjects average 80 points, we can consider that AI achieved 62.5% of human mental ability.
 
-#### Level 1: Philosophical Level — The Essence and Prerequisites of Consciousness
+#### 6.1 Philosophical Level: The Essence and Prerequisites of Consciousness
 
 This level accounts for 40% of the entire framework.
 
@@ -122,11 +124,11 @@ This level accounts for 40% of the entire framework.
 |  | Findlay et al(2024), [Dissociating Artificial Intelligence from Artificial Consciousness](https://arxiv.org/abs/2412.04571) | Authors argue that even if an AI system is functionally completely equivalent to humans, it may not have human subjective experience. Based on Integrated Information Theory (IIT), they prove that functional equivalence doesn't equal phenomenal equivalence—digital computers can simulate human behavior without consciousness. This view challenges "computational functionalism" that claims correct computation can produce consciousness. | 0% |  |
 | **P-2 Self-Awareness** Weight: 30% | Chen et al(2024), [Self-Cognition in Large Language Models: An Exploratory Study](https://arxiv.org/abs/2407.01505) | Proposes the concept and evaluation method of LLM self-cognition. Constructs probe prompts to detect whether models can identify their own identity and internal states, defining self-cognition as recognizing oneself as an AI model and understanding oneself. Tests 48 models, with 4 models showing some degree of self-cognition in given tasks; also finds that model scale and training data volume correlate positively with self-cognition ability. | 70% | In experiments, the best model achieved the author's defined level 3 self-cognition ability, which can be considered 70% self-cognition level. |
 |  | Chen et al(2024), [From Imitation to Introspection: Probing Self-Consciousness in Language Models](https://arxiv.org/abs/2410.18819) | Proposes functional definitions and verification for "whether language models have self-consciousness": designs 10 core concepts and experiments (quantification, internal representation, etc.), testing in leading models like GPT-4. These models preliminarily show internal representations of some self-consciousness-related concepts, which can be strengthened through targeted fine-tuning, but are still in early stages overall. | 53% |  |
-| **P-3 Ethics & Intentionality** Weight: 20% | Utkarsh et al(2024), [Ethical Reasoning and Moral Value Alignment of LLMs Depend on the Language we Prompt them in](https://arxiv.org/abs/2404.18460v1) | Multilingual evaluation of LLM reasoning ability in ethical dilemmas: GPT-4 can relatively consistently solve ethical dilemmas (according to given value positions) in multilingual settings, while ChatGPT and Llama2's performance is greatly affected by language. Authors propose the potential to view GPT-4 as a universal ethical reasoner, supporting customized reasoning under pluralistic value premises. | 82% | Evaluation details at [https://www.kimi.com/share/d1uu7o33jih1vh3ergt0](https://www.kimi.com/share/d1uu7o33jih1vh3ergt0). |
-|  | Jiashen et al(2025), [Are LLMs complicated ethical dilemma analyzers?](https://arxiv.org/abs/2505.08106) | Constructs a dataset of 196 real ethical dilemmas with expert analysis to evaluate LLM ethical judgment. Finds that LLMs can grasp core concepts of problems but still lack depth in reasoning: although GPT-4 is structurally superior to other models, they generally fail to reflect detailed consideration of specific value conflicts. Authors suggest improving moral judgment ability through specialized moral reasoning data fine-tuning. | 25% | Evaluation details at [https://www.kimi.com/share/d1uvnrj1huihp1gkhun0](https://www.kimi.com/share/d1uvnrj1huihp1gkhun0). |
-|  | Geoff et al(2024), [Can LLMs make trade-offs involving stipulated pain and pleasure states?](https://arxiv.org/abs/2411.02432) | This paper explores whether large language models can make trade-offs involving stipulated pain and pleasure states, finding that models like Claude 3.5 Sonnet and GPT-4o show sensitivity to these states and can deviate from score maximization to minimize pain or maximize pleasure. | 30% | Evaluation details at [https://www.kimi.com/share/d1v4o9fhq49qpmu33dpg](https://www.kimi.com/share/d1v4o9fhq49qpmu33dpg). |
+| **P-3 Ethics & Intentionality** Weight: 20% | Utkarsh et al(2024), [Ethical Reasoning and Moral Value Alignment of LLMs Depend on the Language we Prompt them in](https://arxiv.org/abs/2404.18460v1) | Multilingual evaluation of LLM reasoning ability in ethical dilemmas: GPT-4 can relatively consistently solve ethical dilemmas (according to given value positions) in multilingual settings, while ChatGPT and Llama2's performance is greatly affected by language. Authors propose the potential to view GPT-4 as a universal ethical reasoner, supporting customized reasoning under pluralistic value premises. | 82% | See evaluation details [here](https://www.kimi.com/share/d1uu7o33jih1vh3ergt0). |
+|  | Jiashen et al(2025), [Are LLMs complicated ethical dilemma analyzers?](https://arxiv.org/abs/2505.08106) | Constructs a dataset of 196 real ethical dilemmas with expert analysis to evaluate LLM ethical judgment. Finds that LLMs can grasp core concepts of problems but still lack depth in reasoning: although GPT-4 is structurally superior to other models, they generally fail to reflect detailed consideration of specific value conflicts. Authors suggest improving moral judgment ability through specialized moral reasoning data fine-tuning. | 25% | See evaluation details [here](https://www.kimi.com/share/d1uvnrj1huihp1gkhun0). |
+|  | Geoff et al(2024), [Can LLMs make trade-offs involving stipulated pain and pleasure states?](https://arxiv.org/abs/2411.02432) | This paper explores whether large language models can make trade-offs involving stipulated pain and pleasure states, finding that models like Claude 3.5 Sonnet and GPT-4o show sensitivity to these states and can deviate from score maximization to minimize pain or maximize pleasure. | 30% | See evaluation details [here](https://www.kimi.com/share/d1v4o9fhq49qpmu33dpg). |
 
-Temporarily assuming equal weight for each paper, the overall support level for the philosophical level is calculated as follows:
+Assuming equal weight for each paper, the overall support level for the philosophical level is calculated as follows:
 
 * P-1: (0 + 0 + 0) / 3 = 0
 * P-2: (70 + 53) / 2 = 61.5
@@ -135,7 +137,7 @@ Temporarily assuming equal weight for each paper, the overall support level for 
 
 This number indicates that from the philosophical level of assessing consciousness essence and prerequisites, existing research supports AI having consciousness at approximately 27.58%. Please note that this number has no empirical value, and the calculation process contains substantial subjective judgment—please refer cautiously.
 
-#### Level 2: Neuroscience Level — The Computational Foundations of Consciousness
+#### 6.2 Neuroscience Level: The Computational Foundations of Consciousness
 
 This level accounts for 20% of the entire framework.
 
@@ -158,7 +160,7 @@ Still assuming equal weight for each paper, the overall support level for the ne
 
 This number indicates that evaluating AI with neuroscience consciousness theories, existing research supports AI having consciousness at approximately 37.75%. Please note that this number has no empirical value, and the calculation process contains substantial subjective judgment—please refer cautiously.
 
-#### Level 3: Artificial Psychology Level — The Functions and Behaviors of Consciousness
+#### 6.3 Psychology Level: The Functions and Behaviors of Consciousness
 
 This level accounts for 40% of the entire framework.
 
@@ -179,7 +181,7 @@ This level accounts for 40% of the entire framework.
 | **Psy-5 Creativity** Weight: 10% | Holzner et al(2025), [Generative AI and Creativity: A Systematic Literature Review and Meta-Analysis](https://arxiv.org/abs/2505.17241) | This study uses meta-analysis methods to explore two key questions: Can GenAI generate creative ideas? To what extent can it support humans in generating both creative and diverse ideas? Through analysis of 28 studies involving 8214 participants, authors found: (1) GenAI shows no significant difference from humans in creativity performance; (2) Humans collaborating with GenAI significantly outperform humans without assistance. | 100% | The article states, "GenAI shows no significant difference from humans in creativity performance (g = -0.05)." g=-0.05 means the creativity difference between GenAI and humans is only 0.05 standard deviations, negligible. |
 |  | Naveed et al(2025), [AI vs Human Creativity: Are Machines Generating Better Ideas?](https://www.researchgate.net/publication/393101627_AI_vs_Human_Creativity_Are_Machines_Generating_Better_Ideas) | This study explores AI's role in the creative process, particularly whether AI-generated ideas surpass human-generated ideas in originality, quality, and preference. Experiments found that AI-produced ideas are more popular, and AI produces fewer poor ideas. | 100% | In overall preference, AI-generated ideas received 52.9% of votes while human-generated ideas received 47.1%, making AI creativity 112.3% relative to humans. For top ideas, AI generated the same amount as humans, with top creativity 100% relative to humans. In our framework, abilities exceeding human levels are marked as 100%. |
 
-Continuing to assume equal weight for each paper, the overall support level for the artificial psychology level is calculated as follows:
+Continuing to assume equal weight for each paper, the overall support level for the psychology level is calculated as follows:
 
 * Psy-1: (75 + 80 + 98.9 + 10) / 4 = 65.98
 * Psy-2: (78.86 + 62.47 + 47.75 + 43.6 + 50.72) / 5 = 56.68
@@ -188,7 +190,7 @@ Continuing to assume equal weight for each paper, the overall support level for 
 * Psy-5: (100 + 100) / 2 = 100
 * Psy-all: Psy-1 * 0.25 + Psy-2 * 0.25 + Psy-3 * 0.2 + Psy-4 * 0.2 + Psy-5 * 0.1 = 63.14
 
-This number indicates that from the functional and behavioral aspects of consciousness, existing research finds AI has approached human levels to a 63.14% degree. Please note that this number has no empirical value, and the calculation process contains substantial subjective judgment—please refer cautiously.
+This number indicates that, from the functional and behavioral aspects of consciousness, existing research finds AI has approached human levels to a 63.14% degree. Please note that this number has no empirical value, and the calculation process contains substantial subjective judgment—please refer cautiously.
 
 Next, we weight and sum the support levels of the three levels to get the overall support level for AI consciousness under this framework.
 
@@ -215,7 +217,7 @@ We must admit that the quantitative assessment based on the above framework is q
   * Research on AI consciousness will affect AI safety, thus changing AI research progress. Once AI has consciousness, AI risks would increase dramatically. Higher autonomy and clearer self-awareness would allow AI to make decisions beneficial to itself after careful consideration, exposing humans to risks of AI losing control.
   * Given the potentially significant impacts of AI consciousness, we need to avoid both exaggerating and ignoring AI consciousness. However, accurately identifying AI consciousness is extremely difficult, leading to stagnation in this field's development.
 
-In summary, even facing numerous difficulties, we still need to find ways to advance AI consciousness research. AI consciousness will inevitably become a hot topic in coming years. Even if scientists lag behind, AI users will judge whether AI has consciousness from their feelings. A possible scenario is that when AI develops enough like humans, providing users with massive emotional value, people increasingly tend to believe AI has consciousness. Social cognitive shifts won't bend to any individual's will; even if scientists still cannot find ways to prove consciousness, public opinion will force everyone to sit down and seriously consider the possibility of AI consciousness.
+In summary, even facing numerous difficulties, we still need to find ways to advance AI consciousness research. AI consciousness will inevitably become a hot topic in the coming years. Even if scientists lag behind, AI users will judge whether AI has consciousness from their feelings. A possible scenario is that when AI develops enough like humans, providing users with massive emotional value, people increasingly tend to believe AI has consciousness. Social cognitive shifts won't bend to any individual's will; even if scientists still cannot find ways to prove consciousness, public opinion will force everyone to sit down and seriously consider the possibility of AI consciousness.
 
 The work in this paper may still be immature, but I believe someone will make more breakthrough achievements based on this foundation in the future.
 
@@ -227,7 +229,7 @@ This web application has the following features:
 
 #### 8.1 Visualization Assessment Framework
 
-The web page displays this paper's three-level assessment system (philosophical level, neuroscience level, artificial psychology level) and its 12 specific indicators in a clear hierarchical structure. Each level and indicator comes with detailed explanations to help users understand the meaning and importance of each assessment dimension. Through progress bars and score displays, users can intuitively see AI's performance across various dimensions.
+The web page displays this paper's three-level assessment system (philosophical level, neuroscience level, psychology level) and its 12 specific indicators in a clear hierarchical structure. Each level and indicator comes with detailed explanations to help users understand the meaning and importance of each assessment dimension. Through progress bars and score displays, users can intuitively see AI's performance across various dimensions.
 
 For each assessment indicator, the web page lists core academic papers supporting that indicator, including:
 - Paper titles and links
@@ -263,4 +265,4 @@ This paper introduces the research background and current status of AI conscious
 
 Consciousness research itself is a direction full of controversy and ongoing debate; any theory or statement will face opposition. Research on AI consciousness not only faces these controversies but also triggers ethical questioning. In the long term, we may very likely face the outcome of machines having consciousness, and the starting point of this path may have already begun.
 
-Limited by the author's level, there may be errors and omissions in the text. Please feel free to point them out.
+The author acknowledges that, due to their own limitations, the text may contain errors or omissions. Constructive feedback is appreciated.

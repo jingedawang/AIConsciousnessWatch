@@ -64,7 +64,7 @@ const translations = {
     en: {
         // Header
         'site.title': 'AI Consciousness Watch',
-        'site.description': 'A multi-level evaluation framework for AI consciousness',
+        'site.description': 'A multi-level assessment framework for AI consciousness',
 
         // Overall score
         'overall.score': 'Overall Score',

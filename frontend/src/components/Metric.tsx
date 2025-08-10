@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
 import ProgressBar from './ProgressBar';
 
 interface Paper {
@@ -19,8 +18,6 @@ interface MetricProps {
 }
 
 const Metric: React.FC<MetricProps> = ({ icon, color, metric }) => {
-  const [isOpen, setIsOpen] = useState(true);
-
   return (
     <div className="bg-slate-800 rounded-lg p-6">
       <div className="flex items-center justify-between">

@@ -803,7 +803,7 @@ function App() {
             <p style={{ margin: 0 }}>
               {language === 'zh'
                 ? `版本 ${data.version} · AI意识的多层次评估框架`
-                : `Version ${data.version} · A multi-level evaluation framework for AI consciousness`
+                : `Version ${data.version} · A multi-level assessment framework for AI consciousness`
               }
             </p>
           </div>
