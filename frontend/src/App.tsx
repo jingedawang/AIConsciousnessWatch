@@ -412,7 +412,7 @@ function App() {
                     display: 'flex',
                     alignItems: 'center',
                     marginBottom: isMobile ? '10px' : '15px',
-                    cursor: isMobile ? 'default' : 'pointer',
+                    cursor: 'pointer',
                     padding: isMobile ? '8px' : '12px',
                     borderRadius: '8px',
                     transition: isMobile ? 'none' : 'all 0.3s ease',
@@ -421,6 +421,12 @@ function App() {
                   }}
                   onMouseEnter={isMobile ? undefined : () => setHoveredLevel(colorSet.id)}
                   onMouseLeave={isMobile ? undefined : () => setHoveredLevel(null)}
+                  onClick={() => {
+                    // 在移动端使用点击来切换选中状态
+                    if (isMobile) {
+                      setHoveredLevel(hoveredLevel === colorSet.id ? null : colorSet.id);
+                    }
+                  }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', marginRight: '12px' }}>
                     {/* Color indicator */}
