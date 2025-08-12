@@ -90,12 +90,17 @@ function App() {
       fontFamily: 'MiSans, sans-serif',
       backgroundColor: '#f5f7fa',
       color: '#333',
-      width: '1200px',
-      margin: '0 auto'
+      minHeight: '100vh',
+      width: '100%'
     }}>
       <LanguageToggle />
 
-      <div style={{ width: '100%', padding: '30px' }}>
+      <div style={{
+        width: '1200px',
+        minWidth: '1200px',
+        margin: '0 auto',
+        padding: '30px'
+      }}>
         <header style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h1 style={{
             fontSize: '36px',

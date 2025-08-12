@@ -1,5 +1,29 @@
 @import "tailwindcss";
 
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f7fa;
+    min-width: 1200px;
+}
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+    min-width: 1200px;
+}
+
 @font-face {
     font-family: 'MiSans';
     src: url('https://assets-persist.lovart.ai/agent-static-assets/MiSans-Regular.ttf') format('truetype');
