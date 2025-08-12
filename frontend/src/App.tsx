@@ -2,6 +2,30 @@ import { useEffect, useState } from 'react';
 import { useLanguage } from './contexts/LanguageContext';
 import { LanguageToggle } from './components/LanguageToggle';
 
+// Hook for responsive design
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: typeof window !== 'undefined' ? window.innerWidth : 1200,
+    height: typeof window !== 'undefined' ? window.innerHeight : 800,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
+  return windowSize;
+}
+
 // Interfaces for multilingual data structure
 interface MultiLangText {
   zh: string;
@@ -47,6 +71,8 @@ interface ConsciousnessData {
 function App() {
   const { language, t } = useLanguage();
   const [data, setData] = useState<ConsciousnessData | null>(null);
+  const { width: windowWidth } = useWindowSize();
+  const isMobile = windowWidth <= 768;
 
   useEffect(() => {
     fetch('/ai-consciousness-watch-i18n.json')
@@ -96,50 +122,57 @@ function App() {
       <LanguageToggle />
 
       <div style={{
-        width: '1200px',
-        minWidth: '1200px',
+        maxWidth: '1200px',
+        width: '100%',
         margin: '0 auto',
-        padding: '30px'
+        padding: isMobile ? '15px' : '30px'
       }}>
-        <header style={{ textAlign: 'center', marginBottom: '40px' }}>
+        <header style={{ textAlign: 'center', marginBottom: isMobile ? '20px' : '40px' }}>
           <h1 style={{
-            fontSize: '36px',
+            fontSize: isMobile ? '24px' : '36px',
             color: '#2c3e50',
             marginBottom: '10px',
             margin: 0,
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            lineHeight: '1.2'
           }}>{getText(data.name)}</h1>
           <p style={{
-            fontSize: '16px',
+            fontSize: isMobile ? '14px' : '16px',
             color: '#7f8c8d',
-            maxWidth: '600px',
-            margin: '0 auto'
+            maxWidth: isMobile ? '90%' : '600px',
+            margin: '0 auto',
+            lineHeight: '1.5'
           }}>{getText(data.description)}</p>
         </header>
 
         <div style={{
           display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
           justifyContent: 'center',
-          marginBottom: '50px',
+          alignItems: isMobile ? 'center' : 'flex-start',
+          marginBottom: isMobile ? '30px' : '50px',
           position: 'relative',
-          height: '400px'
+          minHeight: isMobile ? 'auto' : '400px',
+          gap: isMobile ? '20px' : '0'
         }}>
-          {/* 项目介绍 - 绝对定位在左侧 */}
+          {/* 项目介绍 */}
           <div style={{
-            position: 'absolute',
-            left: '20px',
-            top: '50%',
-            transform: 'translateY(-50%)',
+            position: isMobile ? 'static' : 'absolute',
+            left: isMobile ? 'auto' : '20px',
+            top: isMobile ? 'auto' : '50%',
+            transform: isMobile ? 'none' : 'translateY(-50%)',
             backgroundColor: '#ffffff',
             border: '1px solid #e5e7eb',
             borderRadius: '12px',
-            padding: '20px',
-            width: '300px',
+            padding: isMobile ? '16px' : '20px',
+            width: isMobile ? '100%' : '300px',
+            maxWidth: isMobile ? '500px' : '300px',
             textAlign: 'left',
-            fontSize: '13px',
+            fontSize: isMobile ? '12px' : '13px',
             lineHeight: '1.6',
             color: '#4b5563',
-            zIndex: 1
+            zIndex: 1,
+            order: isMobile ? 2 : 1
           }}>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
               <i className="ri-information-line" style={{
@@ -180,13 +213,19 @@ function App() {
 
           <div style={{
             position: 'relative',
-            width: '400px',
-            height: '400px',
+            width: isMobile ? '300px' : '400px',
+            height: isMobile ? '300px' : '400px',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            order: isMobile ? 1 : 2
           }}>
-            <svg width="400" height="400" viewBox="0 0 120 120" style={{ overflow: 'visible' }}>
+            <svg 
+              width={isMobile ? "300" : "400"} 
+              height={isMobile ? "300" : "400"} 
+              viewBox="0 0 120 120" 
+              style={{ overflow: 'visible', maxWidth: '100%', height: 'auto' }}
+            >
               {/* Background circle */}
               <circle
                 cx="60"
@@ -345,11 +384,15 @@ function App() {
 
           {/* Legend */}
           <div style={{
-            position: 'absolute',
-            right: 0,
-            top: '50%',
-            transform: 'translateY(-50%)',
-            width: '240px'
+            position: isMobile ? 'static' : 'absolute',
+            right: isMobile ? 'auto' : 0,
+            top: isMobile ? 'auto' : '50%',
+            transform: isMobile ? 'none' : 'translateY(-50%)',
+            width: isMobile ? '100%' : '240px',
+            marginTop: isMobile ? '20px' : 0,
+            display: isMobile ? 'flex' : 'block',
+            flexDirection: isMobile ? 'column' : 'initial',
+            gap: isMobile ? '8px' : 'initial'
           }}>
             {data.Levels.map((level, index) => {
               const colors = [
@@ -368,9 +411,9 @@ function App() {
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    marginBottom: '15px',
+                    marginBottom: isMobile ? '10px' : '15px',
                     cursor: 'pointer',
-                    padding: '12px',
+                    padding: isMobile ? '8px' : '12px',
                     borderRadius: '8px',
                     transition: 'all 0.3s ease',
                     backgroundColor: hoveredLevel === colorSet.id ? 'rgba(0, 0, 0, 0.08)' : 'transparent',
@@ -408,11 +451,11 @@ function App() {
                     <div style={{
                       fontWeight: hoveredLevel === colorSet.id ? 'bold' : '600',
                       color: hoveredLevel === colorSet.id ? colorSet.dark : '#2c3e50',
-                      fontSize: '15px',
+                      fontSize: isMobile ? '14px' : '15px',
                       transition: 'all 0.3s ease'
                     }}>{getText(level.title)}</div>
                     <div style={{
-                      fontSize: '12px',
+                      fontSize: isMobile ? '11px' : '12px',
                       color: hoveredLevel === colorSet.id ? colorSet.dark : '#7f8c8d',
                       transition: 'all 0.3s ease'
                     }}>
@@ -454,9 +497,10 @@ function App() {
 
         <div style={{
           display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
           justifyContent: 'space-between',
           marginTop: '30px',
-          gap: '24px'
+          gap: isMobile ? '16px' : '24px'
         }}>
           {data.Levels.map(level => {
             const colors = [
@@ -472,10 +516,11 @@ function App() {
               <div
                 key={level.id}
                 style={{
-                  flex: 1,
+                  flex: isMobile ? 'none' : 1,
+                  width: isMobile ? '100%' : 'auto',
                   backgroundColor: '#fff',
                   borderRadius: '16px',
-                  padding: '24px',
+                  padding: isMobile ? '20px' : '24px',
                   boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
                   transition: 'all 0.3s ease',
                   cursor: 'pointer',
@@ -494,19 +539,19 @@ function App() {
                 <div style={{
                   display: 'flex',
                   alignItems: 'flex-start',
-                  marginBottom: '24px'
+                  marginBottom: isMobile ? '20px' : '24px'
                 }}>
                   <div style={{
-                    width: '48px',
-                    height: '48px',
+                    width: isMobile ? '40px' : '48px',
+                    height: isMobile ? '40px' : '48px',
                     borderRadius: '12px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginRight: '16px',
+                    marginRight: isMobile ? '12px' : '16px',
                     color: '#fff',
                     background: colorSet.bg,
-                    fontSize: '20px'
+                    fontSize: isMobile ? '16px' : '20px'
                   }}>
                     <i className={
                       getText(level.title).includes('哲学') || getText(level.title).includes('Philosophy') ? 'ri-book-open-line' :
@@ -516,13 +561,13 @@ function App() {
                   </div>
                   <div style={{ flex: 1 }}>
                     <div style={{
-                      fontSize: '20px',
+                      fontSize: isMobile ? '18px' : '20px',
                       fontWeight: '600',
                       color: '#1f2937',
                       marginBottom: '4px'
                     }}>{getText(level.title)}</div>
                     <div style={{
-                      fontSize: '14px',
+                      fontSize: isMobile ? '13px' : '14px',
                       color: '#6b7280',
                       lineHeight: '1.4'
                     }}>{getText(level.subtitle)}</div>
@@ -530,9 +575,9 @@ function App() {
                   <div style={{
                     background: colorSet.primary,
                     color: '#fff',
-                    padding: '8px 12px',
+                    padding: isMobile ? '6px 10px' : '8px 12px',
                     borderRadius: '20px',
-                    fontSize: '16px',
+                    fontSize: isMobile ? '14px' : '16px',
                     fontWeight: '600',
                     textAlign: 'center',
                     minWidth: '64px'
@@ -714,16 +759,16 @@ function App() {
         {/* 页脚 */}
         <footer style={{
           borderTop: '1px solid #e5e7eb',
-          paddingTop: '30px',
-          paddingBottom: '30px',
-          marginTop: '50px',
+          paddingTop: isMobile ? '20px' : '30px',
+          paddingBottom: isMobile ? '20px' : '30px',
+          marginTop: isMobile ? '30px' : '50px',
           textAlign: 'center'
         }}>
           <div style={{
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            gap: '30px',
+            gap: isMobile ? '15px' : '30px',
             flexWrap: 'wrap',
             marginBottom: '20px'
           }}>
@@ -738,8 +783,8 @@ function App() {
                 gap: '8px',
                 color: '#374151',
                 textDecoration: 'none',
-                fontSize: '14px',
-                padding: '8px 16px',
+                fontSize: isMobile ? '13px' : '14px',
+                padding: isMobile ? '6px 12px' : '8px 16px',
                 border: '1px solid #e5e7eb',
                 borderRadius: '8px',
                 backgroundColor: '#ffffff',
@@ -771,8 +816,8 @@ function App() {
                 gap: '8px',
                 color: '#374151',
                 textDecoration: 'none',
-                fontSize: '14px',
-                padding: '8px 16px',
+                fontSize: isMobile ? '13px' : '14px',
+                padding: isMobile ? '6px 12px' : '8px 16px',
                 border: '1px solid #e5e7eb',
                 borderRadius: '8px',
                 backgroundColor: '#ffffff',
@@ -804,8 +849,8 @@ function App() {
                 gap: '8px',
                 color: '#374151',
                 textDecoration: 'none',
-                fontSize: '14px',
-                padding: '8px 16px',
+                fontSize: isMobile ? '13px' : '14px',
+                padding: isMobile ? '6px 12px' : '8px 16px',
                 border: '1px solid #e5e7eb',
                 borderRadius: '8px',
                 backgroundColor: '#ffffff',
@@ -828,7 +873,7 @@ function App() {
           </div>
 
           <div style={{
-            fontSize: '12px',
+            fontSize: isMobile ? '11px' : '12px',
             color: '#9ca3af',
             lineHeight: '1.5'
           }}>
