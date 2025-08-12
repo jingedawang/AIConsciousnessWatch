@@ -40,9 +40,9 @@ We've published comprehensive reports analyzing AI consciousness:
 
 ## 🤝 Contributing
 
-We welcome contributions from researchers, developers, and anyone interested in AI consciousness! Here's how you can help:
+We welcome contributions from researchers, developers, and anyone interested in AI consciousness! Here's how you can help.
 
-### Ways to Contribute:
+### Ways to Contribute
 
 1. **Research Contributions**
    - Submit new research papers for analysis
@@ -59,7 +59,7 @@ We welcome contributions from researchers, developers, and anyone interested in 
    - Translate content to additional languages
    - Create tutorials or guides
 
-### How to Contribute:
+### How to Contribute
 
 1. **📝 Issues**: Found a bug or have a suggestion? [Open an issue](https://github.com/jingedawang/AIConsciousnessWatch/issues)
 
@@ -97,12 +97,12 @@ This project is open source and available under the [MIT License](LICENSE.md).
 
 ## 📧 Contact
 
-**Author**: Wang Jinge
+**Author**: Jinge Wang
 
 For questions, suggestions, or collaboration opportunities:
-- 📧 Email: [Send Email](mailto:wjg172184@163.com)
-- 📧 LinkedIn: [Contact through LinkedIn](https://www.linkedin.com/in/wangjinge)
-- 🐱 GitHub: [@jingedawang](https://github.com/jingedawang)
+- Email: [Send Email](mailto:wjg172184@163.com)
+- LinkedIn: [Contact through LinkedIn](https://www.linkedin.com/in/wangjinge)
+- GitHub: [@jingedawang](https://github.com/jingedawang)
 
 ---
 

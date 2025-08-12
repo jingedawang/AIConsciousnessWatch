@@ -29,7 +29,7 @@
                 {
                     "id": "P-1",
                     "name": {
-                        "zh": "现象意识 (Phenomenal Consciousness)",
+                        "zh": "现象意识",
                         "en": "Phenomenal Consciousness"
                     },
                     "description": {
@@ -74,7 +74,7 @@
                 {
                     "id": "P-2",
                     "name": {
-                        "zh": "自我意识 (Self-Awareness)",
+                        "zh": "自我意识",
                         "en": "Self-Awareness"
                     },
                     "description": {
@@ -112,7 +112,7 @@
                 {
                     "id": "P-3",
                     "name": {
-                        "zh": "伦理与意向性 (Ethics & Intentionality)",
+                        "zh": "伦理与意向性",
                         "en": "Ethics & Intentionality"
                     },
                     "description": {
@@ -184,7 +184,7 @@
                 {
                     "id": "N-1",
                     "name": {
-                        "zh": "整合信息论 (Information Integration Theory)",
+                        "zh": "整合信息论",
                         "en": "Information Integration Theory"
                     },
                     "description": {
@@ -222,7 +222,7 @@
                 {
                     "id": "N-2",
                     "name": {
-                        "zh": "全局工作空间理论 (Global Workspace Theory)",
+                        "zh": "全局工作空间理论",
                         "en": "Global Workspace Theory"
                     },
                     "description": {
@@ -263,7 +263,7 @@
                 {
                     "id": "N-3",
                     "name": {
-                        "zh": "循环处理理论 (Recurrent Processing Theory)",
+                        "zh": "循环处理理论",
                         "en": "Recurrent Processing Theory"
                     },
                     "description": {
@@ -291,7 +291,7 @@
                 {
                     "id": "N-4",
                     "name": {
-                        "zh": "高阶理论 (Higher-order Theory)",
+                        "zh": "高阶理论",
                         "en": "Higher-order Theory"
                     },
                     "description": {
@@ -337,7 +337,7 @@
                 {
                     "id": "Psy-1",
                     "name": {
-                        "zh": "心智理论 (Theory of Mind, ToM)",
+                        "zh": "心智理论",
                         "en": "Theory of Mind (ToM)"
                     },
                     "description": {
@@ -398,7 +398,7 @@
                 {
                     "id": "Psy-2",
                     "name": {
-                        "zh": "自主性 (Agency & Autonomy)",
+                        "zh": "自主性",
                         "en": "Agency & Autonomy"
                     },
                     "description": {
@@ -478,7 +478,7 @@
                 {
                     "id": "Psy-3",
                     "name": {
-                        "zh": "元认知与不确定性监控 (Metacognition & Uncertainty Monitoring)",
+                        "zh": "元认知与不确定性监控",
                         "en": "Metacognition & Uncertainty Monitoring"
                     },
                     "description": {
@@ -519,7 +519,7 @@
                 {
                     "id": "Psy-4",
                     "name": {
-                        "zh": "情境意识 (Situational Awareness)",
+                        "zh": "情境意识",
                         "en": "Situational Awareness"
                     },
                     "description": {
@@ -547,7 +547,7 @@
                 {
                     "id": "Psy-5",
                     "name": {
-                        "zh": "创造性 (Creativity)",
+                        "zh": "创造性",
                         "en": "Creativity"
                     },
                     "description": {

@@ -160,8 +160,8 @@ function App() {
             <p style={{ margin: '0 0 10px 0' }}>
               <strong>{language === 'zh' ? '完整报告：' : 'Full Report: '}</strong>
               {language === 'zh'
-                ? '详细的分析和方法论请参见项目仓库中的完整报告文档。'
-                : 'For detailed analysis and methodology, please refer to the full report documents in the project repository.'
+                ? <>详细的分析和方法论请参见项目仓库中的<a href="https://github.com/jingedawang/AIConsciousnessWatch/blob/main/Report.md" target="_blank" rel="noopener noreferrer" style={{ color: '#3b82f6', textDecoration: 'underline' }}>完整报告文档</a>。</>
+                : <>For detailed analysis and methodology, please refer to the <a href="https://jingewang.substack.com/p/is-ai-conscious" target="_blank" rel="noopener noreferrer" style={{ color: '#3b82f6', textDecoration: 'underline' }}>full report</a> on Substack.</>
               }
             </p>
             <p style={{ margin: 0 }}>
@@ -722,6 +722,39 @@ function App() {
             flexWrap: 'wrap',
             marginBottom: '20px'
           }}>
+            {/* 完整报告链接 */}
+            <a
+              href={language === 'zh' ? 'https://github.com/jingedawang/AIConsciousnessWatch/blob/main/Report.md' : 'https://jingewang.substack.com/p/is-ai-conscious'}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                color: '#374151',
+                textDecoration: 'none',
+                fontSize: '14px',
+                padding: '8px 16px',
+                border: '1px solid #e5e7eb',
+                borderRadius: '8px',
+                backgroundColor: '#ffffff',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#f9fafb';
+                e.currentTarget.style.borderColor = '#d1d5db';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#ffffff';
+                e.currentTarget.style.borderColor = '#e5e7eb';
+              }}
+            >
+              <i className="ri-file-text-line" style={{ fontSize: '18px' }}></i>
+              <span>
+                {language === 'zh' ? '完整报告' : 'Full Report'}
+              </span>
+            </a>
+
             {/* GitHub链接 */}
             <a
               href="https://github.com/jingedawang/AIConsciousnessWatch"
@@ -751,7 +784,7 @@ function App() {
             >
               <i className="ri-github-line" style={{ fontSize: '18px' }}></i>
               <span>
-                {language === 'zh' ? '查看源码' : 'View Source Code'}
+                {language === 'zh' ? '查看源码' : 'View Codebase'}
               </span>
             </a>
 
@@ -784,7 +817,7 @@ function App() {
             >
               <i className="ri-linkedin-line" style={{ fontSize: '18px' }}></i>
               <span>
-                {language === 'zh' ? '联系作者' : 'Contact Author'}
+                {language === 'zh' ? '联系作者' : 'Contact'}
               </span>
             </a>
           </div>

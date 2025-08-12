@@ -2,7 +2,7 @@
 
 Author: Wang Jinge
 
->**TL;DR** This paper explores whether AI possesses consciousness by establishing an evaluation framework that analyzes the latest research across philosophy, neuroscience, and psychology. Our analysis suggests that current evidence for AI consciousness stands at approximately 43.84%. Details available at acw.gixia.org. This preliminary study welcomes academic feedback.
+>**TL;DR** This paper explores whether AI possesses consciousness by establishing an evaluation framework that analyzes the latest research across philosophy, neuroscience, and psychology. Our analysis suggests that current evidence for AI consciousness stands at approximately 43.84%. Details available at [acw.gixia.org](https://acw.gixia.org). This preliminary study welcomes academic feedback.
 
 ## 1. The Mystery of Consciousness
 
