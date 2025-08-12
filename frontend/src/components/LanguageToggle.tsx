@@ -2,24 +2,24 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useState, useEffect } from 'react';
 
 function useWindowSize() {
-  const [windowSize, setWindowSize] = useState({
-    width: typeof window !== 'undefined' ? window.innerWidth : 1200,
-  });
+    const [windowSize, setWindowSize] = useState({
+        width: typeof window !== 'undefined' ? window.innerWidth : 1200,
+    });
 
-  useEffect(() => {
-    function handleResize() {
-      setWindowSize({
-        width: window.innerWidth,
-      });
-    }
+    useEffect(() => {
+        function handleResize() {
+            setWindowSize({
+                width: window.innerWidth,
+            });
+        }
 
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
-    }
-  }, []);
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }
+    }, []);
 
-  return windowSize;
+    return windowSize;
 }
 
 export function LanguageToggle() {
@@ -57,12 +57,12 @@ export function LanguageToggle() {
                     cursor: 'pointer',
                     padding: isMobile ? '3px 6px' : '4px 8px',
                     borderRadius: '4px',
-                    transition: 'all 0.2s ease'
+                    transition: isMobile ? 'none' : 'all 0.2s ease'
                 }}
-                onMouseEnter={(e) => {
+                onMouseEnter={isMobile ? undefined : (e) => {
                     e.currentTarget.style.backgroundColor = '#f3f4f6';
                 }}
-                onMouseLeave={(e) => {
+                onMouseLeave={isMobile ? undefined : (e) => {
                     e.currentTarget.style.backgroundColor = 'transparent';
                 }}
                 title={language === 'zh' ? t('switch.to.english') : t('switch.to.chinese')}

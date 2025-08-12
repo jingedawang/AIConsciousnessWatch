@@ -220,10 +220,10 @@ function App() {
             justifyContent: 'center',
             order: isMobile ? 1 : 2
           }}>
-            <svg 
-              width={isMobile ? "300" : "400"} 
-              height={isMobile ? "300" : "400"} 
-              viewBox="0 0 120 120" 
+            <svg
+              width={isMobile ? "300" : "400"}
+              height={isMobile ? "300" : "400"}
+              viewBox="0 0 120 120"
               style={{ overflow: 'visible', maxWidth: '100%', height: 'auto' }}
             >
               {/* Background circle */}
@@ -412,15 +412,15 @@ function App() {
                     display: 'flex',
                     alignItems: 'center',
                     marginBottom: isMobile ? '10px' : '15px',
-                    cursor: 'pointer',
+                    cursor: isMobile ? 'default' : 'pointer',
                     padding: isMobile ? '8px' : '12px',
                     borderRadius: '8px',
-                    transition: 'all 0.3s ease',
+                    transition: isMobile ? 'none' : 'all 0.3s ease',
                     backgroundColor: hoveredLevel === colorSet.id ? 'rgba(0, 0, 0, 0.08)' : 'transparent',
                     border: hoveredLevel === colorSet.id ? `2px solid ${colorSet.dark}` : '2px solid transparent'
                   }}
-                  onMouseEnter={() => setHoveredLevel(colorSet.id)}
-                  onMouseLeave={() => setHoveredLevel(null)}
+                  onMouseEnter={isMobile ? undefined : () => setHoveredLevel(colorSet.id)}
+                  onMouseLeave={isMobile ? undefined : () => setHoveredLevel(null)}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', marginRight: '12px' }}>
                     {/* Color indicator */}
@@ -522,15 +522,15 @@ function App() {
                   borderRadius: '16px',
                   padding: isMobile ? '20px' : '24px',
                   boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
-                  transition: 'all 0.3s ease',
-                  cursor: 'pointer',
+                  transition: isMobile ? 'none' : 'all 0.3s ease',
+                  cursor: isMobile ? 'default' : 'pointer',
                   border: '1px solid rgba(0,0,0,0.06)'
                 }}
-                onMouseEnter={(e) => {
+                onMouseEnter={isMobile ? undefined : (e) => {
                   e.currentTarget.style.transform = 'translateY(-8px)';
                   e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.15)';
                 }}
-                onMouseLeave={(e) => {
+                onMouseLeave={isMobile ? undefined : (e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
                   e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
                 }}
@@ -685,10 +685,10 @@ function App() {
                                   flex: 1,
                                   lineHeight: '1.4'
                                 }}
-                                onMouseEnter={(e) => {
+                                onMouseEnter={isMobile ? undefined : (e) => {
                                   e.currentTarget.style.textDecoration = 'underline';
                                 }}
-                                onMouseLeave={(e) => {
+                                onMouseLeave={isMobile ? undefined : (e) => {
                                   e.currentTarget.style.textDecoration = 'none';
                                 }}
                               >
@@ -788,13 +788,13 @@ function App() {
                 border: '1px solid #e5e7eb',
                 borderRadius: '8px',
                 backgroundColor: '#ffffff',
-                transition: 'all 0.2s ease'
+                transition: isMobile ? 'none' : 'all 0.2s ease'
               }}
-              onMouseEnter={(e) => {
+              onMouseEnter={isMobile ? undefined : (e) => {
                 e.currentTarget.style.backgroundColor = '#f9fafb';
                 e.currentTarget.style.borderColor = '#d1d5db';
               }}
-              onMouseLeave={(e) => {
+              onMouseLeave={isMobile ? undefined : (e) => {
                 e.currentTarget.style.backgroundColor = '#ffffff';
                 e.currentTarget.style.borderColor = '#e5e7eb';
               }}
@@ -821,13 +821,13 @@ function App() {
                 border: '1px solid #e5e7eb',
                 borderRadius: '8px',
                 backgroundColor: '#ffffff',
-                transition: 'all 0.2s ease'
+                transition: isMobile ? 'none' : 'all 0.2s ease'
               }}
-              onMouseEnter={(e) => {
+              onMouseEnter={isMobile ? undefined : (e) => {
                 e.currentTarget.style.backgroundColor = '#f9fafb';
                 e.currentTarget.style.borderColor = '#d1d5db';
               }}
-              onMouseLeave={(e) => {
+              onMouseLeave={isMobile ? undefined : (e) => {
                 e.currentTarget.style.backgroundColor = '#ffffff';
                 e.currentTarget.style.borderColor = '#e5e7eb';
               }}
@@ -854,13 +854,13 @@ function App() {
                 border: '1px solid #e5e7eb',
                 borderRadius: '8px',
                 backgroundColor: '#ffffff',
-                transition: 'all 0.2s ease'
+                transition: isMobile ? 'none' : 'all 0.2s ease'
               }}
-              onMouseEnter={(e) => {
+              onMouseEnter={isMobile ? undefined : (e) => {
                 e.currentTarget.style.backgroundColor = '#f9fafb';
                 e.currentTarget.style.borderColor = '#d1d5db';
               }}
-              onMouseLeave={(e) => {
+              onMouseLeave={isMobile ? undefined : (e) => {
                 e.currentTarget.style.backgroundColor = '#ffffff';
                 e.currentTarget.style.borderColor = '#e5e7eb';
               }}
