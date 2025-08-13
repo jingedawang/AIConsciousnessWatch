@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLanguage } from './contexts/LanguageContext';
 import { LanguageToggle } from './components/LanguageToggle';
+import { umami } from './utils/umami';
 
 // Hook for responsive design
 function useWindowSize() {
@@ -80,9 +81,25 @@ function App() {
       .then(setData);
   }, []);
 
+  // 追踪页面停留时间
+  useEffect(() => {
+    const startTime = Date.now();
+
+    const handleBeforeUnload = () => {
+      const timeSpent = Math.round((Date.now() - startTime) / 1000);
+      umami.trackTimeOnPage(timeSpent);
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
+
   const [hoveredLevel, setHoveredLevel] = useState<string | null>(null);
 
-  const togglePapers = (id: string) => {
+  const togglePapers = (id: string, metricName?: string, levelTitle?: string) => {
     const container = document.getElementById(id);
     const icon = container?.previousElementSibling?.previousElementSibling?.querySelector('.toggle-icon');
 
@@ -93,6 +110,11 @@ function App() {
       } else {
         container.style.display = 'block';
         icon.classList.add('rotate-icon');
+
+        // 追踪 metric 点击事件（只在展开时追踪）
+        if (metricName && levelTitle) {
+          umami.trackMetricClick(id, metricName, levelTitle);
+        }
       }
     }
   };
@@ -198,8 +220,8 @@ function App() {
             <p style={{ margin: '0 0 10px 0' }}>
               <strong>{language === 'zh' ? '完整报告：' : 'Full Report: '}</strong>
               {language === 'zh'
-                ? <>详细的分析和方法论请参见项目仓库中的<a href="https://github.com/jingedawang/AIConsciousnessWatch/blob/main/Report.md" target="_blank" rel="noopener noreferrer" style={{ color: '#3b82f6', textDecoration: 'underline' }}>完整报告文档</a>。</>
-                : <>For detailed analysis and methodology, please refer to the <a href="https://jingewang.substack.com/p/is-ai-conscious" target="_blank" rel="noopener noreferrer" style={{ color: '#3b82f6', textDecoration: 'underline' }}>full report</a> on Substack.</>
+                ? <>详细的分析和方法论请参见项目仓库中的<a href="https://github.com/jingedawang/AIConsciousnessWatch/blob/main/Report.md" target="_blank" rel="noopener noreferrer" onClick={() => umami.trackReportClick('inline-chinese')} style={{ color: '#3b82f6', textDecoration: 'underline' }}>完整报告文档</a>。</>
+                : <>For detailed analysis and methodology, please refer to the <a href="https://jingewang.substack.com/p/is-ai-conscious" target="_blank" rel="noopener noreferrer" onClick={() => umami.trackReportClick('inline-english')} style={{ color: '#3b82f6', textDecoration: 'underline' }}>full report</a> on Substack.</>
               }
             </p>
             <p style={{ margin: 0 }}>
@@ -605,7 +627,7 @@ function App() {
                           cursor: 'pointer',
                           padding: '8px 0'
                         }}
-                        onClick={() => togglePapers(metric.id)}
+                        onClick={() => togglePapers(metric.id, getText(metric.name), getText(level.title))}
                       >
                         <div>
                           <div style={{
@@ -683,6 +705,12 @@ function App() {
                                 href={paper.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={() => umami.trackPaperClick(
+                                  paper.title,
+                                  paper.url,
+                                  metric.id,
+                                  getText(level.title)
+                                )}
                                 style={{
                                   color: colorSet.primary,
                                   textDecoration: 'none',
@@ -783,6 +811,7 @@ function App() {
               href={language === 'zh' ? 'https://github.com/jingedawang/AIConsciousnessWatch/blob/main/Report.md' : 'https://jingewang.substack.com/p/is-ai-conscious'}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => umami.trackReportClick(language === 'zh' ? 'chinese' : 'english')}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -816,6 +845,7 @@ function App() {
               href="https://github.com/jingedawang/AIConsciousnessWatch"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => umami.trackExternalLink('github', 'https://github.com/jingedawang/AIConsciousnessWatch')}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -849,6 +879,7 @@ function App() {
               href="https://www.linkedin.com/in/wangjinge/"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => umami.trackExternalLink('linkedin', 'https://www.linkedin.com/in/wangjinge/')}
               style={{
                 display: 'flex',
                 alignItems: 'center',

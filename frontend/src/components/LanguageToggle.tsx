@@ -1,4 +1,5 @@
 import { useLanguage } from '../contexts/LanguageContext';
+import { umami } from '../utils/umami';
 import { useState, useEffect } from 'react';
 
 function useWindowSize() {
@@ -47,7 +48,11 @@ export function LanguageToggle() {
                 color: '#6b7280'
             }}></i>
             <button
-                onClick={() => setLanguage(language === 'zh' ? 'en' : 'zh')}
+                onClick={() => {
+                    const newLang = language === 'zh' ? 'en' : 'zh';
+                    umami.trackLanguageToggle(language, newLang);
+                    setLanguage(newLang);
+                }}
                 style={{
                     background: 'none',
                     border: 'none',
