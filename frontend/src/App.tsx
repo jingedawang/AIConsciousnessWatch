@@ -214,7 +214,7 @@ function App() {
             <p style={{ margin: '0 0 10px 0' }}>
               {language === 'zh'
                 ? '本项目旨在将学术界对AI意识的研究成果转化为直观的评分体系，以人类意识为100%基准，评估当前AI的意识水平。我们基于哲学、神经科学和心理学三个维度建立多层次评估框架。'
-                : 'This project aims to transform academic research on AI consciousness into an intuitive scoring system. Using human consciousness as a 100% benchmark, we assess the current consciousness level of AI based on a multi-level framework across philosophy, neuroscience, and psychology dimensions.'
+                : 'This project aims to transform academic research on AI consciousness into an intuitive score. With human level consciousness as 100%, we assess current AI based on a multi-level framework across philosophy, neuroscience, and psychology dimensions.'
               }
             </p>
             <p style={{ margin: '0 0 10px 0' }}>
@@ -224,11 +224,18 @@ function App() {
                 : <>For detailed analysis and methodology, please refer to the <a href="https://jingewang.substack.com/p/is-ai-conscious" target="_blank" rel="noopener noreferrer" onClick={() => umami.trackReportClick('inline-english')} style={{ color: '#3b82f6', textDecoration: 'underline' }}>full report</a> on Substack.</>
               }
             </p>
-            <p style={{ margin: 0 }}>
+            <p style={{ margin: '0 0 10px 0' }}>
               <strong>{language === 'zh' ? '数据更新：' : 'Data Updates: '}</strong>
               {language === 'zh'
                 ? '我们会定期更新最新的研究成果，添加新发表的相关论文，并调整评估权重。用户可通过GitHub提交贡献或建议。'
                 : 'We regularly update with the latest research findings, add newly published relevant papers, and adjust evaluation weights. Users can contribute suggestions via GitHub.'
+              }
+            </p>
+            <p style={{ margin: 0 }}>
+              <strong>{language === 'zh' ? '声明：' : 'Disclaimer: '}</strong>
+              {language === 'zh'
+                ? '本文仅代表个人观点，非学界共识。请谨慎对待。'
+                : 'This article represents personal views only, not academic consensus. Please treat with caution.'
               }
             </p>
           </div>
