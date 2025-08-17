@@ -220,7 +220,7 @@ function App() {
             <p style={{ margin: '0 0 10px 0' }}>
               <strong>{language === 'zh' ? '完整报告：' : 'Full Report: '}</strong>
               {language === 'zh'
-                ? <>详细的分析和方法论请参见项目仓库中的<a href="https://github.com/jingedawang/AIConsciousnessWatch/blob/main/Report.md" target="_blank" rel="noopener noreferrer" onClick={() => umami.trackReportClick('inline-chinese')} style={{ color: '#3b82f6', textDecoration: 'underline' }}>完整报告文档</a>。</>
+                ? <>详细分析和方法论请参考<a href="https://zhuanlan.zhihu.com/p/1940372984519975649" target="_blank" rel="noopener noreferrer" onClick={() => umami.trackReportClick('inline-chinese')} style={{ color: '#3b82f6', textDecoration: 'underline' }}>完整版报告</a>。</>
                 : <>For detailed analysis and methodology, please refer to the <a href="https://jingewang.substack.com/p/is-ai-conscious" target="_blank" rel="noopener noreferrer" onClick={() => umami.trackReportClick('inline-english')} style={{ color: '#3b82f6', textDecoration: 'underline' }}>full report</a> on Substack.</>
               }
             </p>
